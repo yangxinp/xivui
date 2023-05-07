@@ -1,0 +1,48 @@
+@use "sass:math" as math;
+@use "../../../styles/tools/color";
+
+.x-progress-cirular {
+  width: 1em;
+  height: 1em;
+  &.indeterminate {
+    animation: progress-cirular-rotate 2s linear infinite;
+    .x-progress-cirular--upper {
+      animation: progress-circular-dash 2s ease-in-out infinite;
+    }
+  }
+
+  &--upper {
+    stroke: currentColor;
+    transition: stroke-dashoffset .6s ease-in-out;
+  }
+
+  &--under {
+    stroke: color.$gray;
+  }
+}
+
+@keyframes progress-circular-dash {
+  $radius: 20;
+  $circumference: 2 * math.$pi * $radius;
+
+  from {
+    stroke-dasharray: 1 $circumference;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: $circumference * 3 / 4 $circumference;
+    stroke-dashoffset: -$circumference / 4;
+  }
+
+  to {
+    stroke-dasharray: $circumference * 3 / 4 $circumference;
+    stroke-dashoffset: -$circumference;
+  }
+}
+
+@keyframes progress-cirular-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

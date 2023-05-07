@@ -1,0 +1,64 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-prefix-cls: v.$prefix + '-date-picker';
+
+.#{$date-picker-prefix-cls} {
+  display: inline-flex;
+  flex-direction: column;
+
+  &.small {
+    .#{$date-picker-prefix-cls}-body {
+      min-width: 256px;
+      max-width: 256px;
+    }
+  }
+
+  &.landscape {
+    flex-direction: row;
+  }
+
+  &-range {
+    display: inline-flex;
+    vertical-align: top;
+  }
+
+  &-body {
+    min-width: 328px;
+    max-width: 328px;
+    position: relative;
+    background-color: #fff;
+  }
+
+  // header 组件
+  &-header {
+    padding: 16px 24px;
+  }
+
+  // day date 组件
+  &-day,
+  &-date {
+    padding: 0 12px;
+  }
+
+  &-footer {
+    padding: 8px 24px;
+    text-align: right;
+    button + button {
+      margin-left: 4px;
+    }
+  }
+}
+
+
+
+// .fade {
+//   &-enter-active,
+//   &-leave-active {
+//     transition: opacity 10s ease;
+//   }
+
+//   &-enter-from,
+//   &-leave-to {
+//     opacity: 0;
+//   }
+// }

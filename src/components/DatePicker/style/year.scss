@@ -1,0 +1,35 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-year-prefix-cls: v.$prefix + "-date-picker-year";
+
+.#{$date-picker-year-prefix-cls} {
+  height: 284px; // 固定高度
+  padding: 0 24px; // 固定间距
+  overflow-y: auto;
+
+  &.small {
+    padding: 4px 20px 8px 12px;
+    height: 220px;
+    .#{$date-picker-year-prefix-cls}-box {
+      min-width: 56px;
+      flex: 1 0 56px;
+      margin-left: 0px;
+      padding: 2px;
+    }
+  }
+
+  &-row {
+    display: flex;
+  }
+
+  &-box {
+    min-width: 88px;
+    flex: 1 0 88px;
+    margin-left: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}

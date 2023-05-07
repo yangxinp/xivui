@@ -1,0 +1,114 @@
+@use "../../../styles/tools/variables";
+
+$sizes: (
+  "x-small": 20,
+  "small": 28,
+  "default": 36,
+  "large": 44,
+  "x-large": 52,
+);
+
+$font-size: (
+  "x-small": 12px,
+  "small": 12px,
+  "default": 14px,
+  "large": 16px,
+  "x-large": 16px,
+);
+
+$-name: "x-button";
+
+.#{$-name} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: inherit;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  &.block { width: 100%; }
+  &.circle { border-radius: 50%; }
+  &.rounded { border-radius: 28px; }
+  &.text { background-color: transparent; }
+  &.outlined {
+    background-color: transparent;
+    border: thin solid;
+  }
+  &.disabled {
+    color: rgba(0, 0, 0, 0.25) !important;
+    cursor: no-drop;
+    &:not(.text):not(.outlined) {
+      background-color: rgba(0, 0, 0, 0.12) !important;
+    }
+  }
+  &.loading {
+    pointer-events: none;
+    .#{$-name}--container {
+      opacity: 0;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s linear, background-color 0.15s linear;
+  }
+  &:hover:not(:disabled)::before {
+    opacity: 0.08;
+  }
+
+  &--container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    > .x-icon:first-child {
+      margin-right: 8px;
+    }
+    > .x-icon:last-child {
+      margin-left: 8px;
+    }
+  }
+
+  &--loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  @each $name, $size in $sizes {
+    &.#{$name}:not(.circle) {
+      height: #{$size}px;
+      min-width: #{$size * (64 / 36)}px;
+      padding: 0 #{$size * (16 / 36)}px;
+    }
+    &.circle.#{$name} {
+      height: #{$size}px;
+      width: #{$size}px;
+    }
+  }
+
+  @each $name, $size in $font-size {
+    &.#{$name} {
+      font-size: $size;
+      .x-icon {
+        font-size: $size + 2;
+      }
+    }
+  }
+}

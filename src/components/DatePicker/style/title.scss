@@ -1,0 +1,90 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-title-prefix-cls: v.$prefix + '-date-picker-title';
+
+.#{$date-picker-title-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 240px;
+  min-height: 120px;
+  border-radius: 4px 4px 0 0;
+  padding: 32px 24px 16px 24px;
+  font-weight: 500;
+  color: white;
+  box-sizing: border-box;
+
+
+  &.landscape {
+    flex-direction: column;
+    border-radius: 4px 0 0 4px;
+    padding: 16px 24px 16px 24px;
+    .#{$date-picker-title-prefix-cls}--tip {
+      margin-top: 0;
+      line-height: 28px;
+    }
+    .#{$date-picker-title-prefix-cls}--body {
+      flex-direction: column;
+    }
+  }
+  &.range:not(.landscape) {
+    .#{$date-picker-title-prefix-cls}--clock + .#{$date-picker-title-prefix-cls}--clock {
+      text-align: right;
+    }
+    .#{$date-picker-title-prefix-cls}--under {
+      font-size: 20px;
+    }
+  }
+
+  // &--btn {
+  //   opacity: .6;
+  //   cursor: pointer;
+  //   transition: opacity 0.3s ease-out;
+  //   &:hover, &.active {
+  //     opacity: 1;
+  //   }
+  // }
+
+  // &--clock {
+  //   & + & {
+  //     margin-left: 24px;
+  //   }
+  // }
+
+  &--tip {
+    margin-top: -1em;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+    // transform: scale(0.8);
+    // transform-origin: left center;
+  }
+
+  &--body {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  &--clock {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // height: 72px;
+  }
+
+  &--above {
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
+
+  &--under {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  &--label {
+    font-size: 28px;
+    font-weight: 500;
+  }
+}

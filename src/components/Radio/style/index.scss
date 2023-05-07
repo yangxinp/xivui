@@ -1,0 +1,62 @@
+@use "../../../styles/tools/variables" as v;
+
+$radio-prefix-cls: v.$prefix + '-radio';
+
+.#{$radio-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+
+  &--control {
+    position: relative;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  &--circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    box-sizing: border-box;
+    transition: color 0.3s ease 0s;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      background-color: currentColor;
+      transform: scale(0);
+      // -webkit-transition-property: transform, background-color, color;
+      // -webkit-transition-duration: 0.3s;
+      // -webkit-transition-timing-function: ease;
+      // -webkit-transition-delay: 0s, 0s, 0s;
+      transition: transform 0.3s ease;
+    }
+    &.active::after {
+      transform: scale(1);
+    }
+  }
+
+  &--input {
+    display: none;
+    opacity: 0;
+  }
+
+  &--ripple {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,108 @@
+@use "../../../styles/tools/variables" as v;
+
+$slider-prefix-cls: v.$prefix + '-slider';
+
+.#{$slider-prefix-cls} {
+  position: relative;
+  min-height: 48px;
+  margin-left: 24px;
+  margin-right: 24px;
+
+  &--track {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &-inactive {
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: 2px;
+      opacity: 0.24;
+    }
+
+    &-active {
+      position: absolute;
+      top: -1px;
+      height: 6px;
+      border-radius: 3px;
+      background-color: currentColor;
+      transition: left 80ms ease, right 80ms ease;
+      will-change: left, right;
+    }
+  }
+
+  &--thumb {
+    position: absolute;
+    left: -24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    user-select: none;
+    transition: transform 80ms ease;
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 0.15s linear, background-color 0.15s linear;
+    }
+
+    &:hover::before {
+      opacity: 0.08;
+    }
+
+    &-knob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background-color: currentColor;
+      box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    }
+  }
+
+  &--thumb-label-box {
+    position: absolute;
+    left: 50%;
+    bottom: 44px;
+    min-height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    border-radius: 4px;
+    background-color: currentColor;
+    opacity: 0.6;
+    transform: translateX(-50%);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 0;
+      border: 6px solid transparent;
+      border-top: 6px solid currentColor;
+      border-bottom: none;
+      transform: translateX(-50%);
+    }
+  }
+  &--label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

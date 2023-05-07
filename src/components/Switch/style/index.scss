@@ -1,0 +1,70 @@
+@use "../../../styles/tools/variables" as v;
+
+$switch-prefix-cls: v.$prefix + '-switch';
+
+$space: 2px;
+$space-inset: 4px;
+
+.#{$switch-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  width: 36px + ($space * 2);
+  height: 20px;
+
+  &.inset {
+    width: 48px;
+    height: 20px + ($space-inset * 2);
+  }
+
+  &--track {
+    position: absolute;
+    top: 3px;
+    left: $space;
+    right: $space;
+    bottom: 3px;
+    background-color: currentColor;
+    border-radius: 7px;
+    opacity: .38;
+  }
+  &.inset &--track {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 14px;
+  }
+
+  &--thumb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    transition: .3s ease-out;
+  }
+  &.inset &--thumb {
+    top: $space-inset;
+    left: 4px;
+    box-shadow: none;
+  }
+  &.active &--thumb, &.active &--ripple {
+    transform: translateX(20px);
+  }
+
+  &--ripple {
+    position: absolute;
+    top: -10px + $space;
+    left: -10px + $space;
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: .3s ease-out;
+  }
+  &.inset &--ripple {
+    top: -4px;
+    left: -4px;
+  }
+}

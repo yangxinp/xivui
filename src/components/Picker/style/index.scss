@@ -1,0 +1,29 @@
+@use "../../../styles/tools/variables" as v;
+
+$picker-prefix-cls: v.$prefix + '-picker';
+
+.#{$picker-prefix-cls} {
+  display: inline-flex;
+  flex-direction: column;
+
+  &.landscape {
+    flex-direction: row;
+    .#{$picker-prefix-cls}-title {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  &-title {
+    // min-height: 100px; // test
+    color: white;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &-body {
+    // min-height: 200px; // test
+    position: relative;
+    // min-width: 305px;
+    overflow: hidden;
+    transition: height 0.3s ease-in, width 0.3s ease-in;
+  }
+}

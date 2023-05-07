@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-vue@2.0.0-beta.13/dist/antd.min.css"> -->
+    <link rel="stylesheet" href="../dist/main.css" />
+  </head>
+  <body>
+    <div id="app" style="margin: 50px;">
+      <!-- <x-button>123</x-button> -->
+      <!-- <x-input :text="inputName"></x-input> -->
+      <!-- <x-switch v-model:value="switchVal"></x-switch> -->
+      <!-- <x-switch v-model:value="switchVal" inset></x-switch> -->
+      <!-- <x-progress-linear :value="progress" :buffer-value="progressBuffer" stream :indeterminate="progressIndeterminate"></x-progress-linear> -->
+      <!-- <x-old-slider v-model:value="sliderRangeVal" :range="true"></x-old-slider> -->
+      <x-slider v-model:value="sliderRangeVal" :range="true"></x-slider>
+      <!-- <a-button>asd</a-button> -->
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@2.0.0-beta.13/dist/antd.min.js"></script> -->
+    <script src="../dist/main.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data () {
+          return {
+            buttonName: "BUTTON !",
+            inputName: "INPUT !",
+            buttonText: "haha1345",
+            indeterminate: true,
+            checkbox: false,
+            checkboxIndeterminate: false,
+            progress: 20,
+            progressBuffer: 80,
+            progressIndeterminate: false,
+            switchVal: false,
+            sliderVal: 0,
+            sliderRangeVal: [20, 50],
+          }
+        }
+      }).use(ui).mount('#app')
+
+      // antd.install(app)
+      // app.mount('#app')
+      
+      // window.ui.default(app)
+      // app.mount('#app')
+      
+      // Vue.createApp(app).use(ui).mount('#app')
+      // (app).mount('#app')
+    </script>
+  </body>
+</html>

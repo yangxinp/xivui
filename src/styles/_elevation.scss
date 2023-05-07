@@ -1,0 +1,28 @@
+@use "./tools/mixin";
+@use "./tools/elevation" as e;
+
+@include mixin.elevation(0, e.$umbra-0, e.$penumbra-0, e.$ambient-0);
+@include mixin.elevation(1, e.$umbra-1, e.$penumbra-1, e.$ambient-1);
+@include mixin.elevation(2, e.$umbra-2, e.$penumbra-2, e.$ambient-2);
+@include mixin.elevation(3, e.$umbra-3, e.$penumbra-3, e.$ambient-3);
+@include mixin.elevation(4, e.$umbra-4, e.$penumbra-4, e.$ambient-4);
+@include mixin.elevation(5, e.$umbra-5, e.$penumbra-5, e.$ambient-5);
+@include mixin.elevation(6, e.$umbra-6, e.$penumbra-6, e.$ambient-6);
+@include mixin.elevation(7, e.$umbra-7, e.$penumbra-7, e.$ambient-7);
+@include mixin.elevation(8, e.$umbra-8, e.$penumbra-8, e.$ambient-8);
+@include mixin.elevation(9, e.$umbra-9, e.$penumbra-9, e.$ambient-9);
+@include mixin.elevation(10, e.$umbra-10, e.$penumbra-10, e.$ambient-10);
+@include mixin.elevation(11, e.$umbra-11, e.$penumbra-11, e.$ambient-11);
+@include mixin.elevation(12, e.$umbra-12, e.$penumbra-12, e.$ambient-12);
+@include mixin.elevation(13, e.$umbra-13, e.$penumbra-13, e.$ambient-13);
+@include mixin.elevation(14, e.$umbra-14, e.$penumbra-14, e.$ambient-14);
+@include mixin.elevation(15, e.$umbra-15, e.$penumbra-15, e.$ambient-15);
+@include mixin.elevation(16, e.$umbra-16, e.$penumbra-16, e.$ambient-16);
+@include mixin.elevation(17, e.$umbra-17, e.$penumbra-17, e.$ambient-17);
+@include mixin.elevation(18, e.$umbra-18, e.$penumbra-18, e.$ambient-18);
+@include mixin.elevation(19, e.$umbra-19, e.$penumbra-19, e.$ambient-19);
+@include mixin.elevation(20, e.$umbra-20, e.$penumbra-20, e.$ambient-20);
+@include mixin.elevation(21, e.$umbra-21, e.$penumbra-21, e.$ambient-21);
+@include mixin.elevation(22, e.$umbra-22, e.$penumbra-22, e.$ambient-22);
+@include mixin.elevation(23, e.$umbra-23, e.$penumbra-23, e.$ambient-23);
+@include mixin.elevation(24, e.$umbra-24, e.$penumbra-24, e.$ambient-24);

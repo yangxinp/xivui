@@ -1,0 +1,41 @@
+@use './tools/variables' as v;
+
+.#{v.$prefix}-ripple {
+  &--container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &--water {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    color: inherit;
+    background-color: currentColor;
+    pointer-events: none;
+    will-change: transform, opacity;
+
+    &.enter {
+      transition: none;
+    }
+
+    &.in {
+      transition: transform 0.25s v.$fast-out-slow-in-timing,
+        opacity 0.1s v.$fast-out-slow-in-timing;
+      // transition: transform 2.5s v.$fast-out-slow-in-timing,
+      // opacity 1s v.$fast-out-slow-in-timing;
+    }
+
+    &.out {
+      transition: opacity 0.3s v.$fast-out-slow-in-timing;
+      // transition: opacity 3s v.$fast-out-slow-in-timing;
+    }
+  }
+}

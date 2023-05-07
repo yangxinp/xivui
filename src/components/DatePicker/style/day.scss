@@ -1,0 +1,28 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-day-prefix-cls: v.$prefix + "-date-picker-day";
+
+.#{$date-picker-day-prefix-cls} {
+  display: flex;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center;
+
+  &-item {
+    flex: 1 0 40px;
+    & + & {
+      margin-left: 4px;
+    }
+  }
+
+  &.small {
+    line-height: 32px;
+    .#{$date-picker-day-prefix-cls}-item {
+      + .#{$date-picker-day-prefix-cls}-item {
+        margin-left: 0;
+      }
+      flex: 1 0 32px;
+    }
+  }
+}

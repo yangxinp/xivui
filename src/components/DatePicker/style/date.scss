@@ -1,0 +1,109 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-date-prefix-cls: v.$prefix + "-date-picker-date";
+
+.#{$date-picker-date-prefix-cls} {
+  padding: 0 12px;
+  min-height: 244px;
+
+  &.small {
+    padding: 0 12px 8px 12px;
+    min-height: 192px;
+    .#{$date-picker-date-prefix-cls}-box {
+      flex: 1 0 28px;
+      padding: 2px;
+      & + .#{$date-picker-date-prefix-cls}-box {
+        margin-left: 0;
+      }
+      &.active::before {
+        left: 0;
+      }
+      &.active:first-child::before {
+        left: -12px;
+      }
+      &.active:last-child::before {
+        right: -12px;
+      }
+      &.active.first::before {
+        left: calc(50% - 14px);
+        border-start-start-radius: 14px;
+        border-end-start-radius: 14px;
+      }
+      &.active.last::before {
+        right: calc(50% - 14px);
+        border-start-end-radius: 14px;
+        border-end-end-radius: 14px;
+      }
+    }
+    &.rounded {
+      .#{$date-picker-date-prefix-cls}-box {
+        &.active:first-child::before {
+          left: calc(50% - 14px);
+          border-start-start-radius: 14px;
+          border-end-start-radius: 14px;
+        }
+        &.active:last-child::before {
+          right: calc(50% - 14px);
+          border-start-end-radius: 14px;
+          border-end-end-radius: 14px;
+        }
+      }
+    }
+  }
+
+  &.rounded {
+    .#{$date-picker-date-prefix-cls}-box {
+      &.active:first-child::before {
+        left: calc(50% - 18px);
+        border-start-start-radius: 18px;
+        border-end-start-radius: 18px;
+      }
+      &.active:last-child::before {
+        right: calc(50% - 18px);
+        border-start-end-radius: 18px;
+        border-end-end-radius: 18px;
+      }
+    }
+  }
+
+  &-row {
+    display: flex;
+  }
+
+  &-box {
+    position: relative;
+    flex: 1 0 40px;
+    padding: 2px;
+    text-align: center;
+    box-sizing: border-box;
+    & + & {
+      margin-left: 4px;
+    }
+    &.active::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: -4px;
+      right: 0;
+      bottom: 2px;
+      opacity: 0.15;
+      background-color: currentColor;
+    }
+    &.active:first-child::before {
+      left: -12px;
+    }
+    &.active:last-child::before {
+      right: -12px;
+    }
+    &.active.first::before {
+      left: calc(50% - 18px);
+      border-start-start-radius: 18px;
+      border-end-start-radius: 18px;
+    }
+    &.active.last::before {
+      right: calc(50% - 18px);
+      border-start-end-radius: 18px;
+      border-end-end-radius: 18px;
+    }
+  }
+}

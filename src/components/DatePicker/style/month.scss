@@ -1,0 +1,16 @@
+@use "../../../styles/tools/variables" as v;
+
+$date-picker-month-prefix-cls: v.$prefix + "-date-picker-month";
+
+.#{$date-picker-month-prefix-cls} {
+  padding: 0 12px;
+
+  table {
+    width: 100%;
+    text-align: center;
+
+    td {
+      height: 56px;
+    }
+  }
+}

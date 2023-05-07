@@ -1,0 +1,75 @@
+@use "../../../styles/tools/variables" as v;
+
+$tabs-prefix-cls: v.$prefix + "-tabs";
+
+.#{$tabs-prefix-cls} {
+  position: relative; // &-prev, &-next
+  height: 48px; // var
+  line-height: 48px; // var
+  background-color: #fff; // var
+  overflow: hidden; // &-prev, &-next
+
+  // TIP: 已使用 js 实现
+  // &.is-overflow &-content {
+  //   padding: 0 52px; // scroll
+  //   // &::after, &::before {
+  //   //   content: "";
+  //   //   display: inline-block;
+  //   //   width: 52px;
+  //   // }
+  // }
+
+  &.fixed &-content {
+    display: flex;
+  }
+  &.fixed &-content .x-tab {
+    flex: 1;
+  }
+
+  &-wrapper {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-content {
+    position: relative; // &-ink
+    display: inline-block;
+    height: 100%;
+    white-space: nowrap;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  }
+
+  %button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    background-color: #fff;
+    cursor: pointer;
+    z-index: 1;
+    .x-icon {
+      font-size: 24px;
+    }
+  }
+
+  &-prev {
+    @extend %button;
+    left: 0;
+  }
+
+  &-next {
+    @extend %button;
+    right: 0;
+  }
+
+  &-ink {
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    background-color: currentColor;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  }
+}
