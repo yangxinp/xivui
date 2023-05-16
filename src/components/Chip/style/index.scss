@@ -1,0 +1,60 @@
+@use "../../../styles/tools/variables" as v;
+
+$dialog-prefix-cls: v.$prefix + '-chip';
+
+.#{$dialog-prefix-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  border: thin solid transparent;
+  overflow: hidden;
+
+  &--underlay {
+    position: absolute;
+  }
+
+  &--prepend {
+    margin: 0 4px 0 -4px;
+    transition: width 0.3s ease;
+  }
+
+  &--append {
+    margin: 0 -4px 0 4px;
+    transition: width 0.3s ease;
+  }
+
+  &--close {
+    margin: 0 -4px 0 4px;
+    transition: width 0.3s ease;
+    cursor: pointer;
+  }
+
+  &#{&}--tonal {
+    .#{$dialog-prefix-cls}--underlay {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 32px;
+      background-color: currentColor;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+  }
+
+  &#{&}--elevated {
+    background-color: #000; // tip: 不能使用 currentColor
+    color: white;
+  }
+
+  &#{&}--outlined {
+    border: thin solid currentColor;
+  }
+
+  &#{&}--text {}
+}

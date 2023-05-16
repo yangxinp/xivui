@@ -13,6 +13,7 @@ import Slider from './Slider'
 import DatePicker from './DatePicker'
 import { Tabs, Tab } from './Tabs'
 import Dialog from "./Dialog"
+import Chip from "./Chip"
 
 const components = [
   Button,
@@ -30,6 +31,7 @@ const components = [
   Tabs,
   Tab,
   Dialog,
+  Chip,
 ]
 
 const install = function (app: App) {

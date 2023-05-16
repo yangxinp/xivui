@@ -12,3 +12,4 @@ import './Slider/style'
 import './DatePicker/style'
 import './Tabs/style' // 需要分开加载
 import './Dialog/style'
+import './Chip/style'

@@ -38,7 +38,7 @@ npm run compile
 - TextField =
 - Tabs =
 - Dialog 
-- Chip
+- Chip =
 - Table
 - Form
 - Card

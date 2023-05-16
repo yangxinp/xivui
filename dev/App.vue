@@ -196,6 +196,23 @@
     <x-button @click="handleTriggerDialog">trigger dialog</x-button>
     <x-dialog v-model:value="dialogVal" />
   </example-row>
+  <example-row title="Chip">
+    <x-chip
+      :prepend-icon="chipPrepend ? 'account-circle-outline' : ''"
+      :append-icon="chipAppend ? 'account-circle-outline' : ''"
+      :closable="chipClose"
+      :type="chipType"
+    >Chip</x-chip>
+    <x-checkbox v-model:value="chipPrepend">prepend</x-checkbox>
+    <x-checkbox v-model:value="chipAppend">append</x-checkbox>
+    <x-checkbox v-model:value="chipClose">close</x-checkbox>
+    <x-tabs v-model:value="chipType" centered>
+      <x-tab name="tonal">tonal</x-tab>
+      <x-tab name="elevated">elevated</x-tab>
+      <x-tab name="outlined">outlined</x-tab>
+      <x-tab name="text">text</x-tab>
+    </x-tabs>
+  </example-row>
 </template>
 
 <script>
@@ -235,6 +252,11 @@ export default {
       fixed: false,
       // dialog
       dialogVal: false,
+      // chip
+      chipPrepend: false,
+      chipAppend: false,
+      chipClose: false,
+      chipType: 'tonal',
     }
   },
   methods: {
