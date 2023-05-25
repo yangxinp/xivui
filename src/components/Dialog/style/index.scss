@@ -26,10 +26,45 @@ $dialog-prefix-cls: v.$prefix + '-dialog';
 
 .#{$dialog-prefix-cls} {
   position: absolute;
-  display: inline-block;
-  min-width: 240px;
-  min-height: 240px;
+  display: inline-flex;
+  flex-direction: column;
   border-radius: 4px;
   background-color: #fff;
   pointer-events: auto;
+
+  // height: 410px;
+  // overflow: auto;
+
+  &-header {
+    padding: 16px 24px 10px;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  &-body {
+    flex: 1;
+  }
+
+  &-footer {
+    padding: 8px 16px;
+    display: flex;
+    justify-content: flex-end;
+    .x-button + .x-button {
+      margin-left: 8px;
+    }
+  }
+
+  &--animated {
+    animation-duration: .15s;
+    animation-name: animate-dialog;
+    animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+@keyframes animate-dialog {
+  0% { transform: scale(1) }
+
+  50% { transform: scale(1.03) }
+
+  100% { transform: scale(1) }
 }

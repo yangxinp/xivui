@@ -194,7 +194,24 @@
   </example-row>
   <example-row title="Dialog">
     <x-button @click="handleTriggerDialog">trigger dialog</x-button>
-    <x-dialog v-model:value="dialogVal" />
+    <x-checkbox v-model:value="dialogTitle">title</x-checkbox>
+    <x-checkbox v-model:value="dialogModal">modal</x-checkbox>
+    <x-checkbox v-model:value="dialogPersistent">persistent</x-checkbox>
+    <x-dialog
+      v-model:value="dialogVal"
+      width="50%"
+      :title="dialogTitle ? 'title' : ''"
+      :modal="dialogModal"
+      :persistent="dialogPersistent"
+    >
+      <div style="height: 300px;overflow-y: auto;">
+        <div v-for="num in 40">data: {{  num  }}</div>
+      </div>
+      <template #footer>
+        <x-button @click="() => dialogVal = false">cancel</x-button>
+        <x-button @click="() => dialogVal = false">confirm</x-button>
+      </template>
+    </x-dialog>
   </example-row>
   <example-row title="Chip">
     <x-chip
@@ -252,6 +269,9 @@ export default {
       fixed: false,
       // dialog
       dialogVal: false,
+      dialogTitle: true,
+      dialogModal: true,
+      dialogPersistent: true,
       // chip
       chipPrepend: false,
       chipAppend: false,
@@ -273,6 +293,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+body {
+  min-height: 1500px;
+}
 </style>

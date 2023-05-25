@@ -37,7 +37,7 @@ npm run compile
 - Switch =
 - TextField =
 - Tabs =
-- Dialog 
+- Dialog =
 - Chip =
 - Table
 - Form
