@@ -1,19 +1,23 @@
 import { DirectiveBinding, ObjectDirective } from "vue"
 
-interface ClickOutsideBindingArgs {
-  handler: () => void
+export interface ClickOutsideBindingArgs {
+  handler: (e: Event) => void
+  include?: () => HTMLElement[]
 }
 
-type ClickOutsideBindingValue = (() => void) | ClickOutsideBindingArgs
+export type ClickOutsideBindingValue = (() => void) | ClickOutsideBindingArgs
 
 function directive(e: Event, el: HTMLElement, binding: DirectiveBinding<ClickOutsideBindingValue>) {
   // 如果是当前元素，则不执行
-  if (el.contains(e.target as Node)) return
+  const elements = ((typeof binding.value === 'object' && binding.value.include) || (() => []))()
+  elements.push(el)
+
+  if (elements.some((_) => _.contains(e.target as Node))) return
 
   const handler = typeof binding.value === 'function' ? binding.value : binding.value.handler
 
   // 如果是绑定元素外的元素，则执行
-  handler()
+  handler(e)
 }
 
 const ClickOutside: ObjectDirective<HTMLElement> = {

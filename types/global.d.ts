@@ -1,5 +1,5 @@
 interface HTMLElement {
-  _clickOutside?: EventListenerOrEventListenerObject
+  _clickOutside?: EventListener
 
   _ripple?: RippleOption
 

@@ -1,5 +1,6 @@
 import { defineComponent, h, Transition, vShow, withDirectives } from "vue";
 import ClickOutside from "../../directives/click-outside";
+import Overlay from "../_Overlay";
 
 const hasScrollbar = (el: Element) => {
   const style = window.getComputedStyle(el);
@@ -65,7 +66,6 @@ const Dialog = defineComponent({
 
   data() {
     return {
-      rendered: false,
       animate: false,
       _animateTimout: -1,
     };
@@ -85,16 +85,9 @@ const Dialog = defineComponent({
     // }
   },
 
-  mounted() {
-    if (this.$el) {
-      document.documentElement.appendChild(this.$el as HTMLElement);
-    }
-  },
-
-  watch: {
+  watch: { 
     value(nval) {
       if (nval) {
-        this.rendered = true;
         window.addEventListener("keydown", this.keyboardListener);
         window.addEventListener("wheel", this.scrollListener, { passive: false });
       } else {
@@ -133,12 +126,13 @@ const Dialog = defineComponent({
     },
     scrollListener(e: WheelEvent) {
       // 只允许鼠标在滚动条弹窗中滚动，并且弹窗没滚动到底和头
+      const overlayRef = this.$refs.overlay as InstanceType<typeof Overlay>
 
       // 在外面滚动，直接阻止
       if (
-        e.target === this.$refs.scrim ||
+        e.target === overlayRef?.scrimRef ||
         e.target === document.body ||
-        !isElementInside(e.target as Element, this.$refs.content as Element)
+        !isElementInside(e.target as Element, overlayRef?.contentRef!)
       )
         return e.preventDefault();
 
@@ -195,10 +189,19 @@ const Dialog = defineComponent({
   },
 
   render() {
-    return h("div", { class: "x-overlay" }, [
-      this.rendered && this.modal ? this._renderScrim() : undefined,
-      this.rendered ? this._renderDialog() : undefined,
-    ]);
+    return h(Overlay, {
+      active: this.value,
+      scrim: true,
+      class: ["x-dialog", { "x-dialog--animated": this.animate }],
+      style: this.styles,
+      clickOutside: this.clickOutside,
+      ref: 'overlay'
+    }, () => [this._renderHeader(), this._renderBody(), this._renderFooter()])
+
+    // return h("div", { class: "x-overlay" }, [
+    //   this.rendered && this.modal ? this._renderScrim() : undefined,
+    //   this.rendered ? this._renderDialog() : undefined,
+    // ]);
 
     // return <div class="overlay">
     //   <div class="scrim"></div>
