@@ -1,6 +1,8 @@
 import './Button/style'
 import './Input/style'
 import './TextField/style'
+import './Textarea/style'
+import './Select/style'
 import './ProgressCircular/style'
 import './Icon/style'
 import './Radio/style'

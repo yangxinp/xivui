@@ -1,0 +1,58 @@
+@use "../../../styles/tools/variables" as v;
+@use "../../../styles/tools/color" as c;
+
+$list-prefix-cls: v.$prefix + '-list';
+$list-item-prefix-cls: v.$prefix + '-list-item';
+
+.#{$list-prefix-cls} {
+  padding: 8px 0;
+}
+
+.#{$list-item-prefix-cls} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 48px;
+
+  &:hover:not(:disabled) &_overlay {
+    opacity: 0.04;
+  }
+
+  &.active &_overlay {
+    opacity: 0.12;
+  }
+
+  &.active:hover:not(:disabled) &_overlay {
+    opacity: 0.16;
+  }
+
+  &_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease-in-out;
+  }
+
+  &_underlay {
+    position: absolute;
+    height: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: thin solid currentColor;
+    opacity: 0.12;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    user-select: none;
+    pointer-events: none;
+  }
+}

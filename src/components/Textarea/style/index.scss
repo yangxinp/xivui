@@ -1,0 +1,34 @@
+@use "../../../styles/tools/variables" as v;
+
+$textarea-prefix-cls: '#{v.$prefix}-textarea';
+
+.#{$textarea-prefix-cls} {
+  width: 100%;
+  padding: 8px 0;
+  border-style: none;
+  background-color: transparent;
+  // height: 100%;
+  height: 0;
+  min-height: var(--textarea-slot-height) !important;
+  box-sizing: border-box;
+  resize: vertical;
+  mask-image: linear-gradient(to bottom, transparent 6px, black 12px);
+
+  &:focus {
+    outline: none;
+  }
+
+  &._no-resize {
+    resize: none;
+  }
+
+  &._sizer {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0!important;
+    min-height: 0!important;
+    pointer-events: none;
+  }
+}

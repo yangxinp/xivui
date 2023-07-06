@@ -115,10 +115,65 @@
     </x-button>
   </example-row>
   <example-row title="Input">
-    <x-input></x-input>
+    <x-input :variant="fieldVariant"></x-input>
   </example-row>
   <example-row title="TextField">
-    <x-text-field></x-text-field>
+    <x-text-field
+      v-model:value="fieldValue"
+      :variant="fieldVariant"
+      label="Regular"
+      type="password"
+      maxlength="22"
+      :loading="fieldLoading"
+      :disabled="fieldDisabled"
+      :clearable="fieldClearable"
+      :prefix-icon="fieldIcon ? 'account-circle': ''"
+      :prefix-outer-icon="fieldIcon ? 'account-circle' : ''"
+      :suffix-icon="fieldIcon ? 'account-circle' : ''"
+      :suffix-outer-icon="fieldIcon ? 'account-circle' : ''"
+    />
+    <br />
+    <x-checkbox v-model:value="fieldIcon">icon</x-checkbox>
+    <x-checkbox v-model:value="fieldLoading">loading</x-checkbox>
+    <x-checkbox v-model:value="fieldDisabled">dsiabled</x-checkbox>
+    <x-checkbox v-model:value="fieldClearable">clearable</x-checkbox>
+    <x-tabs v-model:value="fieldVariant" centered>
+      <x-tab name="underlined">underlined</x-tab>
+      <x-tab name="outlined">outlined</x-tab>
+      <x-tab name="filled">filled</x-tab>
+    </x-tabs>
+  </example-row>
+  <example-row title="Textarea">
+    <x-textarea
+      v-model:value="fieldValue"
+      :variant="fieldVariant"
+      label="Regular"
+      type="password"
+      placeholder="this is placeholder"
+      auto-grow
+      :loading="fieldLoading"
+      :disabled="fieldDisabled"
+      :clearable="fieldClearable"
+      :prefix-icon="fieldIcon ? 'account-circle': ''"
+      :prefix-outer-icon="fieldIcon ? 'account-circle' : ''"
+      :suffix-icon="fieldIcon ? 'account-circle' : ''"
+      :suffix-outer-icon="fieldIcon ? 'account-circle' : ''"
+    />
+  </example-row>
+  <example-row title="Select">
+    <x-select
+      v-model:value="selected"
+      label="Select Label"
+      multiple
+      clearable
+      chips
+      chips-closable
+      filterable
+      :disabled="fieldDisabled"
+      v-model:filter-query="selectedFiterQuery"
+      :variant="fieldVariant"
+      :options="selectOptions"
+    />
   </example-row>
   <example-row title="ProgressCircular">
     <x-progress-circular :indeterminate="indeterminate" :value="cprogress" :size="32"></x-progress-circular>
@@ -179,9 +234,6 @@
   </example-row>
   <example-row title="Tabs, Tab">
     <x-tabs v-model:value="tabVal" :show-arrows="showArrows" :centered="centered" :fixed="fixed" >
-      <!-- <x-tab>123</x-tab>
-      <x-tab>123</x-tab>
-      <x-tab>123</x-tab> -->
       <x-tab v-for="idx in tabNum" :key="idx" :name="idx">item {{idx}}</x-tab>
     </x-tabs>
     <x-button @click="tabNum++">add</x-button>
@@ -241,6 +293,30 @@ export default {
   data () {
     return {
       buttonText: "haha1345",
+      // input
+      inputVariant: 'underlined',
+      // field
+      fieldIcon: false,
+      fieldLoading: false,
+      fieldDisabled: false,
+      fieldClearable: false,
+      fieldValue: '',
+      fieldVariant: 'underlined',
+      // select
+      selected: [],
+      selectedFiterQuery: '',
+      selectOptions: [
+        { label: 'AA', value: 1 },
+        { label: 'BB', value: 2 },
+        { label: 'CC', value: 3 },
+        { label: 'DD', value: 4 },
+        { label: 'EE', value: 5 },
+        { label: 'FF', value: 6 },
+        { label: 'GG', value: 7 },
+        { label: 'HH', value: 8 },
+        { label: 'JJ', value: 9 },
+      ],
+      // checkbox
       indeterminate: true,
       checkbox: false,
       checkboxIndeterminate: false,

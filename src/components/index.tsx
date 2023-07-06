@@ -2,6 +2,8 @@ import Vue, { App } from 'vue'
 import Button from './Button'
 import Input from './Input' 
 import TextField from './TextField'
+import Textarea from './Textarea'
+import Select from './Select'
 import ProgressCircular from './ProgressCircular'
 import Icon from './Icon'
 import Radio from './Radio'
@@ -19,6 +21,8 @@ const components = [
   Button,
   Input,
   TextField,
+  Textarea,
+  Select,
   ProgressCircular,
   Icon,
   Radio,
@@ -46,6 +50,8 @@ export {
   Button,
   Input,
   TextField,
+  Textarea,
+  Select,
   ProgressCircular,
   Icon,
   Radio,

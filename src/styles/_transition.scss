@@ -9,3 +9,33 @@
     opacity: 0;
   }
 }
+
+.slide-y-transition {
+  &-enter-active,
+  &-leave-active {
+    transition-property: transform opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+.slide-y-reverse-transition {
+  &-enter-active,
+  &-leave-active {
+    transition-property: transform opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
