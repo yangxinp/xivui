@@ -14,6 +14,10 @@ $dialog-prefix-cls: v.$prefix + '-chip';
   border: thin solid transparent;
   overflow: hidden;
 
+  &+& {
+    margin-left: 4px;
+  }
+
   &--underlay {
     position: absolute;
   }

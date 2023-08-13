@@ -31,6 +31,10 @@ $-name: "x-button";
   outline: none;
   overflow: hidden;
   cursor: pointer;
+  &+& {
+    margin-left: 8px;
+  }
+
   &.block { width: 100%; }
   &.circle { border-radius: 50%; }
   &.rounded { border-radius: 28px; }
