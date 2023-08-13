@@ -220,7 +220,8 @@ const Slider = defineComponent({
         style: {
           "transform": `translateX(${offset}px)`
         },
-        onMouseDownPassive: (e: MouseEvent) => {
+        // TIP: onMouseDown 受Vue版本影响
+        onMousedownPassive: (e: MouseEvent) => {
           this.active = type
           this.mousedown = type
           this.onThumbMouseDown(e)

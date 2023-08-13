@@ -191,7 +191,8 @@ const Slider = defineComponent({
         style: {
           left: pre + '%'
         },
-        onMouseDown: (e: MouseEvent) => {
+        // TIP: onMouseDown 受Vue版本影响
+        onMousedown: (e: MouseEvent) => {
           this.active = type
           this.mousedown = type
           this.onThumbMouseDown(e)
