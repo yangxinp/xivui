@@ -65,5 +65,6 @@ $checkbox-prefix-cls: v.$prefix + '-checkbox';
     padding: 8px;
     border-radius: 50%;
     overflow: hidden;
+    box-sizing: content-box;
   }
 }

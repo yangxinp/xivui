@@ -61,6 +61,7 @@ $space-inset: 4px;
     padding: 8px;
     border-radius: 50%;
     overflow: hidden;
+    box-sizing: content-box;
     transition: .3s ease-out;
   }
   &.inset &--ripple {

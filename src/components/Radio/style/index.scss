@@ -58,5 +58,6 @@ $radio-prefix-cls: v.$prefix + '-radio';
     padding: 8px;
     border-radius: 50%;
     overflow: hidden;
+    box-sizing: content-box;
   }
 }
