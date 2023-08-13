@@ -1,0 +1,22 @@
+<template>
+  <x-chip
+    type="tonal"
+    prepend-icon="account-circle-outline"
+    append-icon="account-circle-outline"
+    closable>Tonal</x-chip>
+  <x-chip
+    type="elevated"
+    prepend-icon="account-circle-outline"
+    append-icon="account-circle-outline"
+    closable>Elevated</x-chip>
+  <x-chip
+    type="outlined"
+    prepend-icon="account-circle-outline"
+    append-icon="account-circle-outline"
+    closable>Outlined</x-chip>
+  <x-chip
+    type="tonal"
+    prepend-icon="account-circle-outline"
+    append-icon="account-circle-outline"
+    closable>Text</x-chip>
+</template>

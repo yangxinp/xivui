@@ -1,0 +1,24 @@
+{
+  "name": "ui-docs",
+  "private": true,
+  "description": "document",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "prism-theme-vars": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/prismjs": "^1.26.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "markdown-it": "^13.0.1",
+    "prismjs": "^1.29.0",
+    "shiki": "^0.14.3",
+    "vite": "^4.4.2",
+    "vite-plugin-inspect": "^0.7.33",
+    "vitepress": "1.0.0-beta.5"
+  }
+}
