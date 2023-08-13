@@ -2,6 +2,7 @@
 @use "../../../styles/tools/color";
 
 .x-progress-cirular {
+  display: inline;
   width: 1em;
   height: 1em;
   &.indeterminate {
