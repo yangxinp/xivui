@@ -12,6 +12,7 @@ $overlay-prefix-cls: v.$prefix + '-overlay';
   right: 0;
   bottom: 0;
   pointer-events: none;
+  z-index: 200; // todo: js
 
   &--content {
     pointer-events: auto;
