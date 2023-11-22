@@ -3,7 +3,7 @@ import path from 'path'
 import prismjs from 'prismjs'
 import type MarkdownIt from 'markdown-it'
 
-const loadLanguages = require('prismjs/components/index')
+import loadLanguages from 'prismjs/components/index'
 loadLanguages(['markup', 'css', 'javascript'])
 
 const HTML_ESCAPE_TEST_RE = /[&<>"]/;

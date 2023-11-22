@@ -31,7 +31,7 @@ export function markdownTransform(): Plugin {
       const exampRelt = path.relative(info.dir, docsExampRoot).replace(/\\/g, '/')
 
       return insertScript(code, [
-        `const demos = import.meta.globEager("${exampRelt}/${info.name}/*.vue", { eager: true })`
+        `const demos = import.meta.glob("${exampRelt}/${info.name}/*.vue", { eager: true })`
       ])
     },
   }

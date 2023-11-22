@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-demo">
+  <div class="vp-demo vp-raw">
     <Example :demo="demo" />
 
     <div class="vp-demo-btns">
