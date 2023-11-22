@@ -6,7 +6,7 @@ import Textarea from './Textarea'
 import Select from './Select'
 import ProgressCircular from './ProgressCircular'
 import Icon from './Icon'
-import Radio from './Radio'
+import Radio, { RadioGroup } from './Radio'
 import Checkbox from './Checkbox'
 import ProgressLinear from './ProgressLinear'
 import Switch from './Switch'
@@ -27,6 +27,7 @@ const components = [
   ProgressCircular,
   Icon,
   Radio,
+  RadioGroup,
   Checkbox,
   ProgressLinear,
   Switch,
@@ -58,6 +59,7 @@ export {
   ProgressCircular,
   Icon,
   Radio,
+  RadioGroup,
   Checkbox,
   ProgressLinear,
   Switch,
