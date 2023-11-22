@@ -42,7 +42,7 @@ npm run compile
 - Tabs =
 - Dialog =
 - Chip =
-- Table
+- Table =
 - Form
 - Card
 - Snackbar

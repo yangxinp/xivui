@@ -32,6 +32,7 @@ export default defineConfig({
           { text: 'Tabs 选项卡', link: '/zh/components/tabs' },
           { text: 'TextField 输入框', link: '/zh/components/text-field' },
           { text: 'Textarea 文本域', link: '/zh/components/textarea' },
+          { text: 'Table 表格', link: '/zh/components/table' },
         ]
       }
     ],
