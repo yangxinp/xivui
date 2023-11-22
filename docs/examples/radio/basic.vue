@@ -1,11 +1,9 @@
 <template>
-  <x-radio :value="value" />
-  <x-radio :value="value" color="text-green" />
-  <x-radio :value="value" color="text-purple" />
+  <x-radio v-model:checked="checked">Label</x-radio>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const value = ref(false)
+const checked = ref(false)
 </script>
