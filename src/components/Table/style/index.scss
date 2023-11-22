@@ -1,0 +1,226 @@
+@use "../../../styles/tools/variables" as v;
+@use "../../../styles//tools/elevation" as e;
+
+$table-prefix-cls: v.$prefix + '-table';
+
+:root {
+  --x-table-border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.x-menu {
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 99;
+  position: absolute;
+  overflow-y: auto;
+  max-height: 288px;
+  // box-shadow: e.$ambient-12;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12)
+}
+
+
+.#{$table-prefix-cls} {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  &.auto {
+    table-layout: auto;
+  }
+
+  colgroup {
+    col:not(.x-scroll-flag) {
+      // width: 100px;
+      // min-width: 100px;
+    }
+  }
+
+  tr.space-occupation {
+    position: relative; // progress-linear
+    border: none;
+    &>td {
+      height: 0px;
+      border: none !important;
+    }
+  }
+
+  tr.hidden-observer>td {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 0px;
+    // border: 0px;
+    border: none !important;
+    visibility: hidden;
+  }
+
+  tr>td.no-data {
+    text-align: center;
+  }
+
+  tr>th, tr>td {
+    height: 56px; // min-height
+    padding: 6px 16px;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    &.is-left {
+      text-align: left;
+    }
+
+    &.is-center {
+      text-align: center;
+    }
+
+    &.is-right {
+      text-align: right;
+    }
+
+    .cell {
+      overflow: hidden;
+    }
+
+    .ellipsis {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &.front-fixed {
+      position: sticky;
+      z-index: 1;
+    }
+
+    &.behind-fixed {
+      position: sticky;
+      z-index: 1;
+    }
+  }
+
+  &-wrapper {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &-scroll {
+      overflow: auto;
+    }
+
+    tr>th, tr>td {
+      &.front-fixed-last::before,
+      &.behind-fixed-first::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        transition: box-shadow 0.3s;
+        pointer-events: none;
+      }
+
+      &.front-fixed-last::before {
+        right: 0;
+        transform: translateX(100%);
+      }
+      &.behind-fixed-first::before {
+        left: 0;
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &-wrapper-header {
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &-wrapper-body {
+    overflow: auto;
+    flex: 1;
+  }
+
+  &-scrolling-top {
+    .behind-fixed-first::before {
+      box-shadow: inset -10px 0 8px -8px rgba(5, 5, 5, 0.06);
+    }
+  }
+  &-scrolling-middle {
+    .front-fixed-last {
+      border-right: none !important;
+    }
+    .front-fixed-last::before {
+      box-shadow: inset 10px 0 8px -8px rgba(5, 5, 5, 0.06);
+    }
+    .behind-fixed-first::before {
+      box-shadow: inset -10px 0 8px -8px rgba(5, 5, 5, 0.06);
+    }
+  }
+  &-scrolling-bottom {
+    .front-fixed-last {
+      border-right: none !important;
+    }
+    .front-fixed-last::before {
+      box-shadow: inset 10px 0 8px -8px rgba(5, 5, 5, 0.06);
+    }
+  }
+
+  &-header {
+    tr>th {
+      border-left: none;
+      border-bottom: var(--x-table-border);
+
+      .x-table-icon {
+        display: inline-block;
+        font-size: 16px;
+        // opacity: 0;
+        opacity: 0.3;
+
+        &.ascend, &.active {
+          opacity: 1;
+        }
+
+        &.descend {
+          opacity: 1;
+          transform: rotate(180deg);
+        }
+      }
+
+      &:hover .x-table-icon:not(.ascend, .descend, .active) {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &-body {
+    tr:not(:last-child)>td {
+      border-bottom: var(--x-table-border);
+    }
+  }
+
+  &-border {
+    border: var(--x-table-border);
+
+    tr>th:not(:last-child),
+    tr>td:not(:last-child) {
+      border-right: var(--x-table-border);
+    }
+  }
+
+  // todo: merge -> remove
+  .x-progress-linear {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    transition: height 0.3s ease-out;
+  }
+}

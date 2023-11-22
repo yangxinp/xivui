@@ -16,6 +16,7 @@ import DatePicker from './DatePicker'
 import { Tabs, Tab } from './Tabs'
 import Dialog from "./Dialog"
 import Chip from "./Chip"
+import { Table, TableColumn } from './Table'
 
 const components = [
   Button,
@@ -36,6 +37,8 @@ const components = [
   Tab,
   Dialog,
   Chip,
+  Table,
+  TableColumn,
 ]
 
 const install = function (app: App) {
@@ -63,5 +66,7 @@ export {
   DatePicker,
   Tabs,
   Tab,
-  Dialog
+  Dialog,
+  Table,
+  TableColumn,
 }

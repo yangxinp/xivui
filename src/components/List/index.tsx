@@ -45,6 +45,10 @@ export const ListItem = defineComponent({
 })
 
 export const List = defineComponent({
+  props: {
+    small: Boolean
+  },
+
   setup(props, { slots }) {
     function onFocusin (e: Event) {
       console.log(e)
@@ -59,7 +63,7 @@ export const List = defineComponent({
     }
 
     return () => h('div', {
-      class: 'x-list',
+      class: ['x-list', { 'x-list--small': props.small }],
       onFocusin,
       onFocusout,
       onFocus

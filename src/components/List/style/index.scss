@@ -6,6 +6,11 @@ $list-item-prefix-cls: v.$prefix + '-list-item';
 
 .#{$list-prefix-cls} {
   padding: 8px 0;
+
+  &--small .#{$list-item-prefix-cls} {
+    padding: 0 16px;
+    min-height: 32px;
+  }
 }
 
 .#{$list-item-prefix-cls} {
