@@ -1,9 +1,11 @@
 {
-  "name": "ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "",
+  "name": "xivui",
+  "version": "0.0.1",
+  "description": "Vue Material Component Framework",
+  "author": {
+    "name": "Simon",
+    "email": "naclyang@foxmail.com"
+  },
   "scripts": {
     "dev": "node ./dev/serve.js",
     "build": "node ./build/build.js",
@@ -11,8 +13,22 @@
     "tsc": "tsc --watch",
     "docs:dev": "pnpm run -C docs dev"
   },
-  "keywords": [],
-  "license": "ISC",
+  "homepage": "https://xivui.hxin.link",
+  "keywords": [
+    "xivui",
+    "vue framework",
+    "ui",
+    "vue"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
   "peerDependencies": {
     "vue": ">=3.0.0"
   },
