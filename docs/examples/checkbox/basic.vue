@@ -1,9 +1,9 @@
 <template>
-  <x-checkbox v-model:value="checkbox">Text</x-checkbox>
+  <x-checkbox v-model:checked="checked">Label</x-checkbox>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const checkbox = ref(false)
+const checked = ref(false)
 </script>
