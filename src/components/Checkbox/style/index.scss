@@ -5,7 +5,7 @@ $checkbox-prefix-cls: v.$prefix + '-checkbox';
 
 .#{$checkbox-group-prefix-cls} {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 
   .#{$checkbox-prefix-cls} + .#{$checkbox-prefix-cls} {
@@ -38,6 +38,7 @@ $checkbox-prefix-cls: v.$prefix + '-checkbox';
     width: 20px;
     height: 20px;
     margin-right: 8px;
+    flex-shrink: 0;
     // transition: color 0.3s ease;
   }
 
