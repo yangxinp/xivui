@@ -33,6 +33,7 @@ export default defineConfig({
           { text: 'TextField 输入框', link: '/zh/components/text-field' },
           { text: 'Textarea 文本域', link: '/zh/components/textarea' },
           { text: 'Table 表格', link: '/zh/components/table' },
+          { text: 'Card 卡片', link: '/zh/components/card' },
         ]
       }
     ],
