@@ -1,10 +1,36 @@
 @use "../../../styles/tools/variables" as v;
 
+$checkbox-group-prefix-cls: v.$prefix + '-checkbox-group';
 $checkbox-prefix-cls: v.$prefix + '-checkbox';
+
+.#{$checkbox-group-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+
+  .#{$checkbox-prefix-cls} + .#{$checkbox-prefix-cls} {
+    margin-top: 12px;
+  }
+
+  &--inline {
+    flex-direction: row;
+
+    .#{$checkbox-prefix-cls} + .#{$checkbox-prefix-cls} {
+      margin-top: 0;
+      margin-left: 12px;
+    }
+  }
+}
 
 .#{$checkbox-prefix-cls} {
   display: inline-flex;
   align-items: center;
+
+  &--disabled {
+    cursor: no-drop;
+    pointer-events: none;
+    opacity: 0.6;
+  }
 
   &--control {
     position: relative;

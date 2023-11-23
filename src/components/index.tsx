@@ -7,7 +7,7 @@ import Select from './Select'
 import ProgressCircular from './ProgressCircular'
 import Icon from './Icon'
 import Radio, { RadioGroup } from './Radio'
-import Checkbox from './Checkbox'
+import Checkbox, { CheckboxGroup } from './Checkbox'
 import ProgressLinear from './ProgressLinear'
 import Switch from './Switch'
 import OldSlider from './OldSlider'
@@ -29,6 +29,7 @@ const components = [
   Radio,
   RadioGroup,
   Checkbox,
+  CheckboxGroup,
   ProgressLinear,
   Switch,
   OldSlider,
@@ -61,6 +62,7 @@ export {
   Radio,
   RadioGroup,
   Checkbox,
+  CheckboxGroup,
   ProgressLinear,
   Switch,
   OldSlider,
