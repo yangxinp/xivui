@@ -5,7 +5,7 @@ $radio-prefix-cls: v.$prefix + '-radio';
 
 .#{$radio-group-prefix-cls} {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 
   .#{$radio-prefix-cls} + .#{$radio-prefix-cls} {
@@ -38,6 +38,7 @@ $radio-prefix-cls: v.$prefix + '-radio';
     width: 20px;
     height: 20px;
     margin-right: 8px;
+    flex-shrink: 0;
   }
 
   &--circle {
