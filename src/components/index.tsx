@@ -17,6 +17,7 @@ import { Tabs, Tab } from './Tabs'
 import Dialog from "./Dialog"
 import Chip from "./Chip"
 import { Table, TableColumn } from './Table'
+import Card from './Card'
 
 const components = [
   Button,
@@ -41,6 +42,7 @@ const components = [
   Chip,
   Table,
   TableColumn,
+  Card,
 ]
 
 const install = function (app: App) {
@@ -73,4 +75,5 @@ export {
   Dialog,
   Table,
   TableColumn,
+  Card,
 }
