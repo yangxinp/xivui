@@ -1,5 +1,5 @@
 import "./components/styles";
-import { install } from "../src/components";
+import { install } from "./components";
 
 export { install };
 
