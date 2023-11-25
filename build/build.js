@@ -9,12 +9,14 @@ const resolve = (segment) => path.resolve(__dirname, segment);
 
 const compiler = webpack({
   mode: "production",
-  entry: resolve("../src/index.ts"),
+  entry: {
+    index: resolve("../src/index.ts")
+  },
   output: {
     filename: "[name].js",
     path: resolve("../dist/"),
     publicPath: "./",
-    library: "ui",
+    library: "XiVui",
     libraryTarget: "umd",
   },
   devtool: false,

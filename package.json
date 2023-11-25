@@ -1,6 +1,6 @@
 {
   "name": "xivui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Vue Material Component Framework",
   "author": {
     "name": "Simon",
@@ -24,6 +24,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "jsdelivr": "dist/index.js",
+  "unpkg": "dist/index.js",
   "files": [
     "dist",
     "lib",
