@@ -1,67 +1,73 @@
-# issue
+<h1 align="center">
+  XiVui
+</h1>
 
-_项目立项于：2020年10月15日，22:44:27_
+<p align="center">Vue Material Component Framework</p>
 
-1. [数组深度监听问题](https://github.com/vuejs/vue-next/issues/2116)
-2. `getComputedStyle()` 无法获取 `transition`后的属性终值。
-3. `input suffix icon` 在 `width: 100%;` 同级元素使用 `expand transition`，会晃动。使用 `flex: 1;` 取代
-4. get `mask-image`
-5. vue 3.0.5 ~ 3.0.11 - 父组件 watch 子组件的 ref_data `<div ref="ref_data"></div>` 响应失效，只能 `<div :ref="(e) => ref_data.value = e"></div>`
+<p align="center">
+  <a href="https://www.npmjs.org/package/xivui">
+    <img src="https://img.shields.io/npm/v/xivui.svg" />
+  </a>
+</p>
 
-`-` 还没完成
-`=` 基本完成
+## Docs
 
-# Script
+[https://xivui.hxin.link](https://xivui.hxin.link)
+
+## Browsers support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Electron |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+| Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
+
+## Install
+
+### Using Package Manager
+
+Using npm
 
 ```bash
-# dev
-npm run dev
-
-# build
-npm run build
-
-# -> es and lib
-npm run compile
+$ npm install xivui --save
 ```
 
-# Components
+Using yarn
 
-- Button =
-- Checkbox =
-- DatePicker =
-- Icon =
-- Input -
-- SliderOld =
-- Slider =
-- Picker =
-- ProgressCircular =
-- ProgressLinear =
-- Radio =
-- Switch =
-- TextField =
-- Tabs =
-- Dialog =
-- Chip =
-- Table =
-- Form
-- Card
-- Snackbar
-- Select
-- TimePicker
-- ExpansionPanel
-- Carousel
-- Breadcrumb
-- Pagination
+```bash
+$ yarn add xivui
+```
 
-# Directives
+Using pnpm
 
-- ripple =
-- click-outside =
+```bash
+$ pnpm install xivui --save
+```
 
-# Style
+### Using a script tag for global use
 
-- css-reset
-- color =
-- spacing
-- flex
-- elevation
+
+#### unpkg
+
+```html
+<head>
+  <!-- Import style -->
+  <link rel="stylesheet" href="https://unpkg.com/xivui/dist/index.css" />
+  <!-- Import Vue 3 -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <!-- Import component library -->
+  <script src="https://unpkg.com/xivui/index.js"></script>
+</head>
+```
+
+#### jsDelivr
+
+```html
+<head>
+  <!-- Import style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xivui/dist/index.css" />
+  <!-- Import Vue 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+  <!-- Import component library -->
+  <script src="https://cdn.jsdelivr.net/npm/xivui/index.js"></script>
+</head>
+```
