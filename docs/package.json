@@ -1,5 +1,5 @@
 {
-  "name": "ui-docs",
+  "name": "xivui-docs",
   "private": true,
   "description": "document",
   "type": "module",
@@ -9,7 +9,9 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "prism-theme-vars": "^0.2.4"
+    "@mdi/font": "^7.3.67",
+    "prism-theme-vars": "^0.2.4",
+    "xivui": "npm:xivui@latest"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",

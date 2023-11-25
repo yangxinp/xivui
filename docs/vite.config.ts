@@ -1,11 +1,23 @@
 import path from 'path'
-import { defineConfig, searchForWorkspaceRoot } from "vite"
+import { defineConfig, UserConfig, Alias, searchForWorkspaceRoot } from "vite"
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Inspect from 'vite-plugin-inspect'
 import { markdownTransform } from './.vitepress/plugins/vite-md-transform'
 
-export default defineConfig(() => {
-  return {
+export default defineConfig(({ command }) => {
+  const alias: Alias[] = []
+
+  if (command === 'serve') {
+    alias.push({
+      find: /^xivui(\/(es|lib))?$/,
+      replacement: path.resolve(__dirname, '../src/index.ts')
+    })
+  }
+
+  const config: UserConfig = {
+    ssr: {
+      noExternal: ['xivui']
+    },
     server: {
       fs: {
         allow: [
@@ -14,14 +26,7 @@ export default defineConfig(() => {
         ]
       },
     },
-    resolve: {
-      alias: [
-        {
-          find: /^ui(\/(es|lib))?$/,
-          replacement: path.resolve(__dirname, '../src/index.ts'),
-        },
-      ]
-    },
+    resolve: { alias },
     plugins: [
       vueJsx({}),
       markdownTransform(),
@@ -29,7 +34,13 @@ export default defineConfig(() => {
     ],
     assetsInclude: ['.woff2', '.woff', '.ttf'],
     optimizeDeps: {
-      exclude: ['../src/components']
+      exclude: [
+        '../es',
+        '../lib',
+        '../src/components'
+      ]
     }
   }
+
+  return config
 })

@@ -1,6 +1,8 @@
 <template>
   <div class="vp-demo vp-raw">
-    <Example :demo="demo" />
+    <ClientOnly>
+      <Example :demo="demo" />
+    </ClientOnly>
 
     <div class="vp-demo-btns">
       <x-button circle text>

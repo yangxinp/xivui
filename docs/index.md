@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: UI
+title: XiVui
 subtitle: Vue3 UI
 actions:
   - text: Components

@@ -4,8 +4,8 @@ import tableWrapper from './plugins/table-wrapper'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "UI",
-  description: "document",
+  title: "xivui",
+  description: "a Vue 3 based component library for designers and developers",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
