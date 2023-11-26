@@ -32,13 +32,13 @@
   }
 
   50% {
-    stroke-dasharray: $circumference * 3 / 4 $circumference;
-    stroke-dashoffset: -$circumference / 4;
+    stroke-dasharray: calc($circumference * 3 / 4) $circumference;
+    stroke-dashoffset: calc(-1 * $circumference / 4);
   }
 
   to {
-    stroke-dasharray: $circumference * 3 / 4 $circumference;
-    stroke-dashoffset: -$circumference;
+    stroke-dasharray: calc($circumference * 3 / 4) $circumference;
+    stroke-dashoffset: calc(-1 * $circumference);
   }
 }
 

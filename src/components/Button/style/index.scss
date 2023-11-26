@@ -98,8 +98,8 @@ $-name: "x-button";
   @each $name, $size in $sizes {
     &.#{$name}:not(.circle) {
       height: #{$size}px;
-      min-width: #{$size * (64 / 36)}px;
-      padding: 0 #{$size * (16 / 36)}px;
+      min-width: #{$size * calc(64 / 36)}px;
+      padding: 0 #{$size * calc(16 / 36)}px;
     }
     &.circle.#{$name} {
       height: #{$size}px;
