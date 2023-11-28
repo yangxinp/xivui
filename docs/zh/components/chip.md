@@ -10,25 +10,26 @@
 
 ## 图标搭配
 
+设置属性 `prepend-icon` 前缀图标类型，设置属性 `append-icon` 后缀图标类型，图标类型详情见 [Icon](./icon.md) 说明。
+
+
 :::demo chip/icon
-
-:::
-
-## 调节大小
-
-:::demo chip/size
-
-:::
-
-## 禁用状态
-
-:::demo chip/disabled
 
 :::
 
 ## 按钮关闭
 
+设置属性 `closable` 为 `true`，使后方出现关闭按钮，同时还需监听 `close` 事件。
+
 :::demo chip/closable
+
+:::
+
+## 颜色
+
+使用 `class` 样式改变颜色，参照 [Color 色彩](./color.md#通用) 的介绍
+
+:::demo chip/color
 
 :::
 
