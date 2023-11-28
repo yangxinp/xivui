@@ -11,6 +11,11 @@ $space-inset: 4px;
   width: 36px + ($space * 2);
   height: 20px;
 
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
   &.inset {
     width: 48px;
     height: 20px + ($space-inset * 2);
@@ -25,20 +30,28 @@ $space-inset: 4px;
     background-color: currentColor;
     border-radius: 7px;
     opacity: .38;
+    transition: opacity 0.3s ease-out;
   }
-  &.inset &--track {
+  .inset &--track {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     border-radius: 14px;
   }
+  &.active:not(.loading) &--track {
+    opacity: 1;
+  }
 
   &--thumb {
     position: absolute;
     width: 20px;
     height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
+    font-size: 16px;
     background-color: #fff;
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
     transition: .3s ease-out;
