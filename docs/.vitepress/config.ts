@@ -31,7 +31,7 @@ export default defineConfig({
           { text: 'Checkbox 多选框', link: '/zh/components/checkbox' },
           { text: 'Chip 纸片', link: '/zh/components/chip' },
           { text: 'Date Picker 日期选择器', link: '/zh/components/date-picker' },
-          { text: 'Dialog 日期选择器', link: '/zh/components/dialog' },
+          { text: 'Dialog 对话框', link: '/zh/components/dialog' },
           { text: 'Slider 滑块', link: '/zh/components/slider' },
           { text: 'Old Slider 滑块（旧版）', link: '/zh/components/old-slider' },
           { text: 'ProgressCircular 环状进度', link: '/zh/components/progress-circular' },
