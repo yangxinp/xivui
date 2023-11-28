@@ -37,7 +37,7 @@ const ProgressCircular = defineComponent({
     },
     classes(): object {
       return {
-        "x-progress-cirular": true,
+        "x-progress-circular": true,
         indeterminate: this.indeterminate,
       };
     },
@@ -62,7 +62,7 @@ const ProgressCircular = defineComponent({
     const children = [
       this.indeterminate ? undefined : (
         <circle
-          class="x-progress-cirular--under"
+          class="x-progress-circular--under"
           cx={center}
           cy={center}
           r={Radius}
@@ -72,7 +72,7 @@ const ProgressCircular = defineComponent({
         ></circle>
       ),
       <circle
-        class="x-progress-cirular--upper"
+        class="x-progress-circular--upper"
         cx={center}
         cy={center}
         r={Radius}

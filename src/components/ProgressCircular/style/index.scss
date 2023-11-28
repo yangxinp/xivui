@@ -1,13 +1,13 @@
 @use "sass:math" as math;
 @use "../../../styles/tools/color";
 
-.x-progress-cirular {
+.x-progress-circular {
   display: inline;
   width: 1em;
   height: 1em;
   &.indeterminate {
-    animation: progress-cirular-rotate 2s linear infinite;
-    .x-progress-cirular--upper {
+    animation: progress-circular-rotate 2s linear infinite;
+    .x-progress-circular--upper {
       animation: progress-circular-dash 2s ease-in-out infinite;
     }
   }
@@ -42,7 +42,7 @@
   }
 }
 
-@keyframes progress-cirular-rotate {
+@keyframes progress-circular-rotate {
   to {
     transform: rotate(360deg);
   }
