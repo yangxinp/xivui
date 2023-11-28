@@ -17,7 +17,7 @@ const Slider = defineComponent({
     },
     max: {
       type: Number,
-      default: 200,
+      default: 100,
     },
     range: {
       type: Boolean,
@@ -67,13 +67,23 @@ const Slider = defineComponent({
         return def
       }
     },
+    startRate() : number {
+      return (this.start - this.min) / this.length
+    },
+    endRate() : number {
+      return (this.end - this.min) / this.length
+    },
+    startX () : number {
+      return this.startRate * this.trackWidth
+    },
+    endX () : number {
+      return this.endRate * this.trackWidth
+    },
     length () : number {
       return this.max - this.min
-    }
+    },
   },
-  created () {
 
-  },
   methods: {
     onThumbMouseDown (e: MouseEvent) {
       if (!this.trackNode) throw new Error('未正确渲染函数')
@@ -133,7 +143,6 @@ const Slider = defineComponent({
       this.mousedown = ''
       this.active = ''
 
-      console.log('removeEventListener')
       window.removeEventListener('mousemove', this.onThumbMouseMove)
       window.removeEventListener('mouseup', this.onThumbMouseUp)
     },
@@ -147,17 +156,14 @@ const Slider = defineComponent({
       })
     },
     _renderTrack() {
-      const startRate = this.start / this.length
-
-      const track = [this._renderTrackItem({ type: 'left', scale: startRate })]
+      const track = [this._renderTrackItem({ type: 'left', scale: this.startRate })]
 
       if (this.range) {
-        const endRate = this.end / this.length
-        const centerOffset = (startRate + endRate - 1) / 2
-        track.push(this._renderTrackItem({ type: 'center', scale: endRate - startRate, offset: centerOffset }))
-        track.push(this._renderTrackItem({ type: 'right', scale: 1 - endRate }))
+        const centerOffset = (this.startRate + this.endRate - 1) / 2
+        track.push(this._renderTrackItem({ type: 'center', scale: this.endRate - this.startRate, offset: centerOffset }))
+        track.push(this._renderTrackItem({ type: 'right', scale: 1 - this.endRate }))
       } else {
-        track.push(this._renderTrackItem({ type: 'right', scale: 1 - startRate }))
+        track.push(this._renderTrackItem({ type: 'right', scale: 1 - this.startRate }))
       }
 
       return h('div', {
@@ -189,7 +195,7 @@ const Slider = defineComponent({
           'active': type === this.active,
         },
         style: {
-          left: pre + '%'
+          left: (pre * 100) + '%'
         },
         // TIP: onMouseDown 受Vue版本影响
         onMousedown: (e: MouseEvent) => {
@@ -197,13 +203,21 @@ const Slider = defineComponent({
           this.mousedown = type
           this.onThumbMouseDown(e)
         },
-      }, [thumb, thumbLabelContainer])
+      }, [thumb, this.disabled ? undefined : thumbLabelContainer])
     },
     _renderThumb () {
-      const thumb = [this._renderThumbItem(this.start / this.length * 100, 'start', this.start.toString())]
+      const thumb = [this._renderThumbItem(
+        this.startRate,
+        'start',
+        this.$slots['thumb-label'] ? this.$slots['thumb-label']({ value: this.start, type: 'start' }) : this.start.toString()
+      )]
 
       if (this.range) {
-        thumb.push(this._renderThumbItem(this.end / this.length * 100, 'end', this.end.toString()))
+        thumb.push(this._renderThumbItem(
+          this.endRate,
+          'end',
+          this.$slots['thumb-label'] ? this.$slots['thumb-label']({ value: this.end, type: 'end' }) : this.end.toString()
+        ))
       }
 
       return thumb
@@ -211,9 +225,7 @@ const Slider = defineComponent({
   },
   render() {
     return h('div', {
-      class: {
-        "x-old-slider": true
-      }
+      class: ['x-old-slider', { 'x-old-slider--disabled': this.disabled }]
     }, [
       this._renderTrack(),
       this._renderTick(),

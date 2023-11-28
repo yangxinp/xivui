@@ -8,6 +8,11 @@ $slider-prefix-cls: v.$prefix + '-old-slider';
   margin-left: 6px;
   margin-right: 6px;
 
+  &--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
   // track
   &--track-container {
     position: absolute;
