@@ -5,6 +5,7 @@ function compileColor() {
   const fragment = data.toString("utf-8").split("\n");
 
   let content = `@use "./tools/color";\n@use "./tools/mixin";\n\n`;
+  let json = ''
 
   for (const chunk of fragment) {
     if (chunk === "") {
@@ -12,15 +13,19 @@ function compileColor() {
       continue;
     }
 
-    const match = chunk.match(/^\$(.+(?:-\d+)?):/);
+    const match = chunk.match(/^\$(.+(?:-\d+)?):\s*(.+);\s*$/);
     if (match === null) continue;
 
-    const className = match[1];
-    const variableName = match[0].slice(0, -1);
+    const name = match[1];
+    const variable = match[2];
 
-    content += `@include mixin.color("${className}", color.${variableName});\n`;
+    json += `  ["${name}", "${variable}"],\n`;
+    content += `@include mixin.color("${name}", color.$${name});\n`;
   }
 
+  if (json) json = json.slice(0, -2);
+
+  fs.writeFileSync("./docs/.vitepress/data/color.json", `[\n${json}\n]`);
   fs.writeFileSync("./src/styles/_color.scss", content);
 }
 

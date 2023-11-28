@@ -15,6 +15,15 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Basic 基础',
+        items: [
+          { text: 'Install 安装', link: '/zh/components/install' },
+          { text: 'Started 快速开始', link: '/zh/components/started' },
+          { text: 'Color 颜色', link: '/zh/components/color' },
+          { text: 'Elevation 海拔', link: '/zh/components/elevation' },
+        ]
+      },
+      {
         text: 'Components 组件',
         items: [
           { text: 'Icon 图标', link: '/zh/components/icon' },
