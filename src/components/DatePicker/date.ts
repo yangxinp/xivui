@@ -35,7 +35,9 @@ const DatePickerDate = defineComponent({
     value: {
       type: Array as PropType<string[]>,
       required: true,
-    }
+    },
+    min: String,
+    max: String,
   },
   computed: {
     // 当前月份天数 - 当前月份最后一天
@@ -48,6 +50,10 @@ const DatePickerDate = defineComponent({
     }
   },
   methods: {
+    isDisabled (date: string) {
+      if (this.min && this.min > date) return true
+      if (this.max && this.max < date) return true
+    },
     // 是否为边界值
     isBoundary (date: string) {
       const boundary = { start: false, end: false }
@@ -79,6 +85,7 @@ const DatePickerDate = defineComponent({
       const time = `${this.year}-${pad(this.month + 1)}-${pad(date)}`
       const active = this.isSelected(time)
       const boundary = this.isBoundary(time)
+      const disabled = this.isDisabled(time)
       const buttonActive = this.range ? (active && (boundary.start || boundary.end)) : active
       const backgroudActive = this.range && active
 
@@ -86,6 +93,7 @@ const DatePickerDate = defineComponent({
         circle: true,
         color: 'black',
         small: this.small,
+        disabled,
         // large: this.large,
         text: !buttonActive,
         onClick: () => this.$emit('input', date)

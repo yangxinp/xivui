@@ -10,15 +10,14 @@ import DatePickerDay from './day'
 import pad from './util/pad'
 import { wrapInArray } from '../../utils'
 
-const datestr = (year: number, month: number, date?: number) => {
-  year = year + Math.floor(month / 12)
-  month %= 12
-  if (month < 0) {
-    month += 12
-    year--
-  }
+const normalizeDate = (year: number | string, month: number | string, date?: number | string) => {
+  if (typeof year === 'string') year = Number(year)
+  if (typeof month === 'string') month = Number(month)
+  if (typeof date === 'string') date = Number(date)
 
-  return date == null ? `${year}-${pad(month + 1)}` : `${year}-${pad(month + 1)}-${pad(date)}`
+  if (date === undefined) { month += 1; date = 0 }
+  const time = new Date(year, month - 1, date)
+  return `${time.getFullYear()}-${pad(time.getMonth() + 1)}-${pad(time.getDate())}`
 }
 
 const commonProps = {
@@ -207,6 +206,8 @@ const DatePicker = defineComponent({
       return h(Transition, { mode: 'out-in', name: 'fade-transition' }, () => {
         return h(DatePickerDate, {
           key: `date-picker-date-${this.iYear}-${this.iMonth}`,
+          min: this.min,
+          max: this.max,
           small: this.desktop,
           year: this.iYear,
           month: this.iMonth,
@@ -289,7 +290,7 @@ export default defineComponent({
 
     if (select.length === 2) {
       const [start, end] = select
-      if (start.year === end.year && start.month && end.month) {
+      if (start.year === end.year && start.month === end.month) {
         const date = new Date(end.year, end.month + 1)
         end.year = date.getFullYear()
         end.month = date.getMonth()
@@ -298,9 +299,20 @@ export default defineComponent({
 
     return { iValue, select: ref(select) }
   },
+  computed: {
+    iMin () {
+      if (!this.min) return
+      const [_, year, month, date] = this.min.match(/^(\d+)-(\d+)(?:-(\d+))?$/) ?? []
+      return normalizeDate(year, month, date)
+    },
+    iMax () {
+      if (!this.max) return
+      const [_, year, month, date] = this.max.match(/^(\d+)-(\d+)(?:-(\d+))?$/) ?? []
+      return normalizeDate(year, month, date)
+    }
+  },
   methods: {
     emitValue (v: string) {
-      console.log(v)
       this.$emit('input', v)
       this.$emit('update:value', v)
     }
@@ -314,8 +326,8 @@ export default defineComponent({
         h(DatePicker, {
           ...this.$props,
           value: this.iValue,
-          min: this.min ?? datestr(minYear, 0),
-          max: datestr(this.select[1].year, this.select[1].month - 1),
+          min: this.iMin ?? normalizeDate(minYear, 1, 1),
+          max: normalizeDate(this.select[1].year, this.select[1].month + 1 - 1),
           year: this.select[0].year,
           month: this.select[0].month,
           onInput: this.emitValue,
@@ -325,8 +337,8 @@ export default defineComponent({
         h(DatePicker, {
           ...this.$props,
           value: this.iValue,
-          min: datestr(this.select[0].year, this.select[0].month + 1),
-          max: this.max ?? datestr(maxYear, 0),
+          min: normalizeDate(this.select[0].year, this.select[0].month + 1 + 1, 1),
+          max: this.iMax ?? normalizeDate(maxYear, 1),
           year: this.select[1].year,
           month: this.select[1].month,
           onInput: this.emitValue,
@@ -338,8 +350,8 @@ export default defineComponent({
       return h(DatePicker, {
         ...this.$props,
         value: this.iValue,
-        min: this.min ?? datestr(this.select[0].year - 20, 0),
-        max: this.max ?? datestr(this.select[0].year + 20, 0),
+        min: this.iMin ?? normalizeDate(this.select[0].year - 20, 1, 1),
+        max: this.iMax ?? normalizeDate(this.select[0].year + 20, 1),
         year: this.select[0].year,
         month: this.select[0].month,
         onInput: this.emitValue,
