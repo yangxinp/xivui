@@ -1,7 +1,7 @@
 <template>
-  <x-slider v-model:value="value" range disabled />
+  <x-old-slider v-model:value="value" range disabled />
 </template>
-
+ 
 <script setup lang="ts">
 import { ref } from 'vue';
 

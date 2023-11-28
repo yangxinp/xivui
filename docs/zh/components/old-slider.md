@@ -1,12 +1,12 @@
 # Slider 滑块
 
-当前提供两种风格的滑块，以下介绍的是新版本滑块，你也可以使用 [**旧版滑块**](./old-slider.md)。
+当前提供两种风格的滑块，以下介绍的是旧版本滑块，你也可以使用 [**新版滑块**](./slider.md)。
 
 ## 基础使用
 
 通过 `value` 或 `v-model:value` 绑定数据，用户可点击滑块不释放进行左右滑动。
 
-:::demo slider/basic
+:::demo old-slider/basic
 
 :::
 
@@ -20,7 +20,7 @@
 
 :::
 
-:::demo slider/range
+:::demo old-slider/range
 
 :::
 
@@ -28,7 +28,7 @@
 
 设置 `disabled` 属性为 `true`
 
-:::demo slider/disabled
+:::demo old-slider/disabled
 
 :::
 
@@ -36,7 +36,7 @@
 
 设置 `min`、`max` 属性可以滑块的选择范围，默认情况下 `min` 为 `0`，`max` 为 `100`
 
-:::demo slider/limit
+:::demo old-slider/limit
 
 :::
 
@@ -44,7 +44,7 @@
 
 可以插槽 `thumb-label`，自定义滑块上的气泡。作用域会传入 `value` 当前值和 `type` 气泡的前后类型。
 
-:::demo slider/slot
+:::demo old-slider/slot
 
 :::
 
@@ -52,7 +52,7 @@
 
 利用内置颜色类调色，详细跳转 [Color 颜色](./color.md#通用) 查看
 
-:::demo slider/color
+:::demo old-slider/color
 
 :::
 
@@ -70,6 +70,6 @@
 
 ### 插槽
 
-| 插槽名      | 说明           | 作用域参数      |
-| ----------- | -------------- | --------------- |
+| 插槽名      | 说明           | 作用域参数        |
+| ----------- | -------------- | ----------------- |
 | thumb-label | 气泡内容自定义 | `{ value, type }` |

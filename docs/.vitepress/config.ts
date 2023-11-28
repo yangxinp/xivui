@@ -33,6 +33,7 @@ export default defineConfig({
           { text: 'Date Picker 日期选择器', link: '/zh/components/date-picker' },
           { text: 'Dialog 日期选择器', link: '/zh/components/dialog' },
           { text: 'Slider 滑块', link: '/zh/components/slider' },
+          { text: 'Old Slider 滑块（旧版）', link: '/zh/components/old-slider' },
           { text: 'ProgressCircular 环状进度', link: '/zh/components/progress-circular' },
           { text: 'ProgressLinear 进度条', link: '/zh/components/progress-linear' },
           { text: 'Radio 单选框', link: '/zh/components/radio' },
