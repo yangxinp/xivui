@@ -57,7 +57,10 @@ const Dialog = defineComponent({
     // 标题
     title: String,
     // 显示遮罩
-    modal: Boolean,
+    modal: {
+      type: Boolean,
+      default: true,
+    },
     // 最大宽度
     width: String,
     // 点击外部和按下esc不会关闭
@@ -191,7 +194,7 @@ const Dialog = defineComponent({
   render() {
     return h(Overlay, {
       active: this.value,
-      scrim: true,
+      scrim: this.modal,
       class: ["x-dialog", { "x-dialog--animated": this.animate }],
       style: this.styles,
       clickOutside: this.clickOutside,
