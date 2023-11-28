@@ -2,6 +2,10 @@
 import { useData } from 'vitepress'
 
 const { frontmatter: fm } = useData()
+
+function isExternal (url: string) {
+  return /^https?:\/\//.test(url)
+}
 </script>
 
 <template>
@@ -15,9 +19,11 @@ const { frontmatter: fm } = useData()
         <div class="actions">
           <x-button 
             v-for="action in fm.actions"
+            tag="a"
             :key="action.link"
+            :href="action.link"
+            :target="isExternal(action.link) ? '_blank' : undefined"
             rounded
-            outlined
           >
             <x-icon v-if="action.icon" :type="action.icon" />
             <span>{{ action.text }}</span>
@@ -29,6 +35,11 @@ const { frontmatter: fm } = useData()
 </template>
 
 <style scoped>
+.actions .x-button {
+  background-color: var(--vp-home-hero-name-color);
+  color: white;
+}
+
 .VPHero {
   margin-top: calc((var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1);
   padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px) 24px 48px;
