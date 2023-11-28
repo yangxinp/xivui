@@ -1,9 +1,5 @@
 <template>
-  <x-textarea value="" label="Underlined" clearable disabled />
-  <x-textarea value="" label="Outlined" variant="outlined" clearable disabled />
-  <x-textarea value="" label="Filled" variant="filled" clearable disabled />
-
-  <x-textarea value="value" label="Underlined" clearable disabled />
-  <x-textarea value="value" label="Outlined" variant="outlined" clearable disabled />
-  <x-textarea value="value" label="Filled" variant="filled" clearable disabled />
+  <x-textarea value="on disabled status" label="Textarea" disabled />
+  <x-textarea value="on disabled status" label="Textarea" variant="outlined" disabled />
+  <x-textarea value="on disabled status" label="Textarea" variant="filled" disabled />
 </template>

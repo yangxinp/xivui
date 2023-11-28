@@ -1,27 +1,27 @@
 <template>
   <x-textarea
     v-model:value="value"
-    label="Underlined"
+    label="Textarea"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 
   <x-textarea
     v-model:value="value"
-    label="Outlined"
+    label="Textarea"
     variant="outlined"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 
   <x-textarea
     v-model:value="value"
-    label="Filled"
+    label="Textarea"
     variant="filled"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 </template>

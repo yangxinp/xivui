@@ -1,21 +1,21 @@
 <template>
   <x-textarea
     v-model:value="value"
-    label="Underlined"
+    label="Textarea"
     :rows="2"
     placeholder="Two rows and auto-grow"
     auto-grow />
   <x-textarea
     v-model:value="value"
+    label="Textarea"
     variant="outlined"
-    label="Outlined"
     :rows="3"
     placeholder="Thress rows and auto-grow"
     auto-grow />
   <x-textarea
     v-model:value="value"
+    label="Textarea"
     variant="filled"
-    label="Filled"
     :rows="2"
     placeholder="Four rows and auto-grow"
     auto-grow />

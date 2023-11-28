@@ -1,7 +1,7 @@
 <template>
-  <x-textarea v-model:value="value" label="Underlined" />
-  <x-textarea v-model:value="value" variant="outlined" label="Outlined" />
-  <x-textarea v-model:value="value" variant="filled" label="Filled" />
+  <x-textarea v-model:value="value" label="Textarea" />
+  <x-textarea v-model:value="value" label="Textarea" variant="outlined" />
+  <x-textarea v-model:value="value" label="Textarea" variant="filled" />
 </template>
 
 <script setup lang="ts">
