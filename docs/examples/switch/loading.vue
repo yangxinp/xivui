@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <x-switch v-model:value="value" />
-    <x-switch v-model:value="value" inset />
+    <x-switch v-model:value="value" loading />
+    <x-switch v-model:value="value" inset loading />
   </div>
 </template>
 
