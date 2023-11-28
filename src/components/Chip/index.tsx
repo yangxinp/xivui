@@ -5,7 +5,7 @@ import expand from '../transitions/expand'
 const allowTyps = ['tonal', 'elevated', 'outlined', 'text'] as const
 
 const Chip = defineComponent({
-  emits: ['click'],
+  emits: ['close'],
 
   name: 'x-chip',
 
@@ -44,9 +44,9 @@ const Chip = defineComponent({
   },
 
   methods: {
-    onClick(e: MouseEvent) {
+    onClose(e: MouseEvent) {
       e.stopPropagation()
-      this.$emit('click')
+      this.$emit('close')
     },
 
     _renderUnderlay() {
@@ -69,7 +69,7 @@ const Chip = defineComponent({
     },
     _renderClose() {
       return h(Transition, { ...this.expandHook }, () => {
-        if (this.closable) return h(Icon, { class: 'x-chip--close', type: 'close-circle', onClick: this.onClick  })
+        if (this.closable) return h(Icon, { class: 'x-chip--close', type: 'close-circle', onClick: this.onClose  })
       })
     }
   },
