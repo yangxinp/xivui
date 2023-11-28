@@ -1,4 +1,5 @@
 import { defineComponent, h } from "vue";
+import { unitOn } from "../../utils";
 
 const ProgressLinear = defineComponent({
   name: "x-progress-linear",
@@ -9,6 +10,7 @@ const ProgressLinear = defineComponent({
       type: Number,
       default: 100
     },
+    height: [Number, String],
     stream: Boolean,
     indeterminate: Boolean,
   },
@@ -92,7 +94,8 @@ const ProgressLinear = defineComponent({
     if (this.stream && this._streamValue) tree.push(this._renderStream())
     
     return h('div', {
-      class: { "x-progress-linear": true }
+      class: { "x-progress-linear": true },
+      style: { height: typeof this.height === 'number' ? unitOn(this.height) : this.height },
     }, tree)
 
     return (
