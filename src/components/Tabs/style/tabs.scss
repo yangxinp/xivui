@@ -47,7 +47,7 @@ $tabs-prefix-cls: v.$prefix + "-tabs";
     align-items: center;
     justify-content: center;
     width: 52px;
-    background-color: #fff;
+    background-color: inherit;
     cursor: pointer;
     z-index: 1;
     .x-icon {
