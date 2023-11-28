@@ -10,7 +10,7 @@ const resolve = (segment) => path.resolve(__dirname, segment);
 const compiler = webpack({
   mode: "production",
   entry: {
-    index: resolve("../src/index.ts")
+    index: resolve("../index.ts")
   },
   output: {
     filename: "[name].js",

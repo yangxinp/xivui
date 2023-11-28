@@ -1,2 +1,6 @@
 .vitepress/cache/*
 .temp
+
+# lock
+package-lock.json
+pnpm-lock.yaml

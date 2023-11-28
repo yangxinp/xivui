@@ -1,79 +1,19 @@
-import Vue, { App } from 'vue'
-import Button from './Button'
-import Input from './Input' 
-import TextField from './TextField'
-import Textarea from './Textarea'
-import Select from './Select'
-import ProgressCircular from './ProgressCircular'
-import Icon from './Icon'
-import Radio, { RadioGroup } from './Radio'
-import Checkbox, { CheckboxGroup } from './Checkbox'
-import ProgressLinear from './ProgressLinear'
-import Switch from './Switch'
-import OldSlider from './OldSlider'
-import Slider from './Slider'
-import DatePicker from './DatePicker'
-import { Tabs, Tab } from './Tabs'
-import Dialog from "./Dialog"
-import Chip from "./Chip"
-import { Table, TableColumn } from './Table'
-import Card from './Card'
-
-const components = [
-  Button,
-  Input,
-  TextField,
-  Textarea,
-  Select,
-  ProgressCircular,
-  Icon,
-  Radio,
-  RadioGroup,
-  Checkbox,
-  CheckboxGroup,
-  ProgressLinear,
-  Switch,
-  OldSlider,
-  Slider,
-  DatePicker,
-  Tabs,
-  Tab,
-  Dialog,
-  Chip,
-  Table,
-  TableColumn,
-  Card,
-]
-
-const install = function (app: App) {
-  console.log('ui install!')
-  components.forEach(component => {
-    app.component(component.name, component)
-  })
-}
-
-export {
-  install,
-  Button,
-  Input,
-  TextField,
-  Textarea,
-  Select,
-  ProgressCircular,
-  Icon,
-  Radio,
-  RadioGroup,
-  Checkbox,
-  CheckboxGroup,
-  ProgressLinear,
-  Switch,
-  OldSlider,
-  Slider,
-  DatePicker,
-  Tabs,
-  Tab,
-  Dialog,
-  Table,
-  TableColumn,
-  Card,
-}
+export { default as Button } from './Button';
+export { default as Input } from './Input';
+export { default as TextField } from './TextField';
+export { default as Textarea } from './Textarea';
+export { default as Select } from './Select';
+export { default as ProgressCircular } from './ProgressCircular';
+export { default as Icon } from './Icon';
+export { default as Radio, RadioGroup } from './Radio';
+export { default as Checkbox, CheckboxGroup } from './Checkbox';
+export { default as ProgressLinear } from './ProgressLinear';
+export { default as Switch } from './Switch';
+export { default as OldSlider } from './OldSlider';
+export { default as Slider } from './Slider';
+export { default as DatePicker } from './DatePicker';
+export { Tabs, Tab } from './Tabs'
+export { default as Dialog } from "./Dialog"
+export { default as Chip } from "./Chip"
+export { Table, TableColumn } from './Table'
+export { default as Card } from './Card'
