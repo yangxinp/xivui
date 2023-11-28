@@ -1,26 +1,33 @@
 <template>
-  <div>value: {{ value }}</div>
-  <br />
-  <x-select v-model:value="value" label="Label" :options="options" object clearable />
-  <x-select v-model:value="value" label="No-data" :options="[]" object clearable />
+  <div class="value">value: {{ value }}</div>
+
+  <x-select v-model:value="value" label="Select" :options="options" object clearable />
+  <x-select v-model:value="value" label="Select No-data" :options="[]" object clearable />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
 interface Option {
-  label: string,
+  label: string
   value: string
 }
 
-const value = ref<Option>({ label: 'GG', value: '77' })
+const value = ref<Option>({ label: 'custom label', value: 'custom value' })
 
 const options = ref([
-  { label: 'AA', value: '11' },
-  { label: 'BB', value: '22' },
-  { label: 'CC', value: '33' },
-  { label: 'DD', value: '44' },
-  { label: 'EE', value: '55' },
-  { label: 'FF', value: '66' },
+  { label: 'option 1', value: 'A' },
+  { label: 'option 2', value: 'B' },
+  { label: 'option 3', value: 'C' },
+  { label: 'option 4', value: 'D' },
+  { label: 'option 5', value: 'E' },
+  { label: 'option 6', value: 'F' },
 ])
 </script>
+
+<style scoped>
+.value {
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+</style>

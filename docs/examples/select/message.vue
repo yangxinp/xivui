@@ -1,7 +1,5 @@
 <template>
-  <x-select v-model:value="value" label="Select" :options="options" />
-  <x-select v-model:value="value" label="Select" :options="options" variant="outlined" />
-  <x-select v-model:value="value" label="Select" :options="options" variant="filled" />
+  <x-select v-model:value="value" label="Select" :options="options" error-message="This is error message" clearable />
 </template>
 
 <script setup lang="ts">

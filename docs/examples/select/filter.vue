@@ -1,6 +1,6 @@
 <template>
-  <div>value: {{ value }}</div>
-  <br />
+  <div class="value">value: {{ value }}</div>
+
   <x-select
     v-model:value="value"
     v-model:filter-query="query"
@@ -16,14 +16,14 @@
 import { ref, watch } from 'vue';
 
 interface Option {
-  label: string,
+  label: string
   value: string
 }
 
 const query = ref('')
 const loading = ref(false)
 
-const value = ref<Option>({ label: 'GG', value: '77' })
+const value = ref<Option>({ label: 'Local option', value: 'local' })
 const options = ref<Option[]>()
 
 async function optionLoader(text: string) {
@@ -51,3 +51,10 @@ async function optionLoader(text: string) {
 
 watch(query, (val) => optionLoader(val))
 </script>
+
+<style scoped>
+.value {
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+</style>
