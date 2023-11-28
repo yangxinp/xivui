@@ -4,10 +4,6 @@ const DURATION = 300
 
 // 计算
 function calculate (el: HTMLElement, e: MouseEvent, value: RippleOption) {
-  console.log(e.offsetX + '、' + e.offsetY)
-  console.log(e)
-  console.dir(el)
-
   const rect = el.getBoundingClientRect()
   const width = el.clientWidth
   const height = el.clientHeight
@@ -31,8 +27,6 @@ function calculate (el: HTMLElement, e: MouseEvent, value: RippleOption) {
 
   const x = value.center ? centerX : (localX - radius)
   const y = value.center ? centerY : (localY - radius)
-
-  console.log({ x, y, rect })
 
   return { scale, radius, centerX, centerY, x, y }
 }
@@ -80,6 +74,8 @@ function drip (this: HTMLElement, e: MouseEvent) {
 function evaporate (this: HTMLElement, e: MouseEvent) {
   const ripples = this.getElementsByClassName('x-ripple--water')
 
+  if (ripples.length === 0) return
+
   const water = ripples[ripples.length - 1] as HTMLElement
   const diff = Date.now() - Number(water.dataset.time)
   // 剩余的扩散事件，等待执行完
@@ -97,7 +93,7 @@ function evaporate (this: HTMLElement, e: MouseEvent) {
         delete this.dataset.previousPosition
       }
 
-      if (water.parentNode) this.removeChild(water.parentNode)
+      if (water.parentNode?.parentNode === this) this.removeChild(water.parentNode)
     }, DURATION)
   }, delay)
 }
@@ -116,12 +112,16 @@ function updateValue (el: HTMLElement, value?: RippleOption) {
 export const Ripple: ObjectDirective<HTMLElement, RippleOption> = {
   mounted (el, binding, vnode, prevNode) {
     updateValue(el, binding.value)
-    // 注册
+
     el.addEventListener('mousedown', drip, { passive: true })
-    // 销毁
+    el.addEventListener('mouseleave', evaporate)
     el.addEventListener('mouseup', evaporate)
   },
-  beforeUnmount (el, binding) {
-    
-  }
+  unmounted (el) {
+    delete el._ripple
+
+    el.removeEventListener('mousedown', drip)
+    el.removeEventListener('mouseleave', evaporate)
+    el.removeEventListener('mouseup', evaporate)
+  },
 }
