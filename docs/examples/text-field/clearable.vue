@@ -1,11 +1,11 @@
 <template>
-  <x-text-field v-model:value="value" label="Underlined" clearable />
-  <x-text-field v-model:value="value" label="Outlined" variant="outlined" clearable />
-  <x-text-field v-model:value="value" label="Filled" variant="filled" clearable />
+  <x-text-field v-model:value="value" label="TextField" clearable />
+  <x-text-field v-model:value="value" label="TextField" variant="outlined" clearable />
+  <x-text-field v-model:value="value" label="TextField" variant="filled" clearable />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const value = ref('')
+const value = ref('click rear icon')
 </script>

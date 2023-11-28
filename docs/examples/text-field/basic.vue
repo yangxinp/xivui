@@ -1,7 +1,7 @@
 <template>
-  <x-text-field v-model:value="value" label="Underlined" />
-  <x-text-field v-model:value="value" variant="outlined" label="Outlined" />
-  <x-text-field v-model:value="value" variant="filled" label="Filled" />
+  <x-text-field v-model:value="value" label="TextField" />
+  <x-text-field v-model:value="value" label="TextField" variant="outlined" />
+  <x-text-field v-model:value="value" label="TextField" variant="filled" />
 </template>
 
 <script setup lang="ts">

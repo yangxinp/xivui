@@ -1,27 +1,27 @@
 <template>
   <x-text-field
     v-model:value="value"
-    label="Underlined"
+    label="TextField"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 
   <x-text-field
     v-model:value="value"
-    label="Outlined"
+    label="TextField"
     variant="outlined"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 
   <x-text-field
     v-model:value="value"
-    label="Filled"
+    label="TextField"
     variant="filled"
     prefix-icon="account"
-    prefix-outer-icon="account-box-multiple-outline"
+    prefix-outer-icon="emoticon"
     suffix-icon="account-circle"
     suffix-outer-icon="account-check" />
 </template>
