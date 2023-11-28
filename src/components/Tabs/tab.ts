@@ -9,7 +9,8 @@ let uid = 0
 const Tab = defineComponent({
   name: 'x-tab',
   props: {
-    name: [String, Number]
+    name: [String, Number],
+    disabled: Boolean,
   },
   setup () {
     return { tabs: inject(TabsKey) }
@@ -34,17 +35,19 @@ const Tab = defineComponent({
   },
   methods: {
     emitClick (e: PointerEvent) {
-      // this.tabs?.updateTab(e)
-      this.tabs?.updateVal(this.name ?? this.id)
+      if (!this.disabled) {
+        // this.tabs?.updateTab(e)
+        this.tabs?.updateVal(this.name ?? this.id)
+      }
     },
   },
   render () {
     const vnode = h('div', {
-      class: "x-tab",
+      class: ["x-tab", { "x-tab--disabled": this.disabled }],
       'data-value': this.name ?? this.id,
       ariaSelected: this.isActive,
       onClick: this.emitClick
-    }, this.$slots.default?.())
+    }, this.$slots.default?.({ name: this.name, active: this.isActive, disabled: this.disabled }))
 
     return withDirectives(vnode, [[Ripple]])
   }
