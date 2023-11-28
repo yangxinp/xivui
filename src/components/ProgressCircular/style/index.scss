@@ -18,7 +18,8 @@
   }
 
   &--under {
-    stroke: color.$gray;
+    stroke: currentColor;
+    opacity: 0.65;
   }
 }
 
