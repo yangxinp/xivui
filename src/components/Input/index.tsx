@@ -28,6 +28,7 @@ export const makeInputProps = () => ({
   prefixOuterIcon: String,
   suffixIcon: String,
   suffixOuterIcon: String,
+  errorMessage: String,
 })
 
 const Input = defineComponent({
@@ -81,6 +82,7 @@ const Input = defineComponent({
           _active: this.active,
           _error: !this.disabled && this.error,
           _disabled: this.disabled,
+          _loading: this.loading,
         },
         this.class,
       ];
@@ -199,7 +201,7 @@ const Input = defineComponent({
       return h('div', { class: 'x-input--control' }, [
         this._renderContent(),
         h(Transition, { ...this.expandHookY }, () => {
-          if (this.loading) return h(ProgressLinear, { indeterminate: true })
+          if (this.loading) return h(ProgressLinear, { indeterminate: true, height: 2 })
         }),
         this._renderDetails()
       ])

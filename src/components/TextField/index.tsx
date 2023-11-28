@@ -26,11 +26,11 @@ const TextField = defineComponent({
     iDisabled() {
       return this.disabled
     },
-    error() : boolean {
-      return !!this.value
+    error() {
+      return !!this.message
     },
-    message() : string {
-      return this.error ? 'Required' : ''
+    message() {
+      return this.errorMessage
     },
   },
   methods: {

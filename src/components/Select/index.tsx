@@ -74,8 +74,8 @@ const Select = defineComponent({
       return iValue.value.map(val => props.options.find(opt => _isEqual(val, opt)))
     })
     const iDisabled = computed(() => props.disabled)
-    const error = computed(() => !!selections.value.length)
-    const message = computed(() => error.value ? 'Not Required - Test' : '')
+    const error = computed(() => !!message.value)
+    const message = computed(() => props.errorMessage)
 
     watch(() => inputRef.value?.$el, (v) => activetorRef.value = v)
     watch(() => overlayRef.value?.contentRef, (v) => contentRef.value = v)
@@ -89,7 +89,7 @@ const Select = defineComponent({
     }
 
     function _getLabel(item: any) {
-      return item[props.labelKey]
+      return item?.[props.labelKey] ?? ''
     }
 
     function _unValue(item: any) {
@@ -165,7 +165,7 @@ const Select = defineComponent({
           ? h(Chip, {
               class: 'x-select--selection',
               closable: !iDisabled.value && props.chipsClosable,
-              onClick: () => remove(idx)
+              onClose: () => remove(idx)
             }, () => _getLabel(item))
           : h('div', { class: 'x-select--selection' }, _getLabel(item) + (isLast ? '' : ','))
       })
