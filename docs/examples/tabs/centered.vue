@@ -1,6 +1,6 @@
 <template>
-  <x-tabs v-model:value="value" centered>
-    <x-tab v-for="idx in 10" :key="idx" :name="idx">tab {{idx}}</x-tab>
+  <x-tabs v-model:value="value" class="text-green" centered>
+    <x-tab v-for="idx in 15" :key="idx" :name="idx">Tab {{idx}}</x-tab>
   </x-tabs>
 </template>
 
