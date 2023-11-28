@@ -22,6 +22,10 @@ const Button = defineComponent({
     disabled: Boolean,
     loading: Boolean,
     block: Boolean,
+    tag: {
+      type: String,
+      default: 'button',
+    },
     ...size.prop,
   },
   setup(prop) {
@@ -60,13 +64,20 @@ const Button = defineComponent({
       </span>
     ) : undefined;
 
+    const Component = this.tag
+
     return (
-      <button v-ripple class={this.classes} disabled={this.disabled}>
+      <Component
+        v-ripple
+        class={this.classes}
+        disabled={this.disabled}
+        {...this.$attrs}
+      >
         <span class="x-button--container">
           {this.$slots.default && this.$slots.default()}
         </span>
         {loader}
-      </button>
+      </Component>
     );
   },
 });
