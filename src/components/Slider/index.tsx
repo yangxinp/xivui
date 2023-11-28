@@ -44,7 +44,7 @@ const Slider = defineComponent({
     },
     max: {
       type: Number,
-      default: 50,
+      default: 100,
     },
     range: {
       type: Boolean,
@@ -60,6 +60,8 @@ const Slider = defineComponent({
       // value: 0 as number | number[],
       elWidth: 0,
       active: '',
+      // todo: extract Thum
+      isFocus: { start: false, end: false },
     }
   },
   setup() {
@@ -93,11 +95,17 @@ const Slider = defineComponent({
         return Math.min(this.max, GetNumber(this.value, def)) 
       }
     },
+    startRate() : number {
+      return (this.start - this.min) / this.length
+    },
+    endRate() : number {
+      return (this.end - this.min) / this.length
+    },
     startX () : number {
-      return this.start / this.length * this.elWidth
+      return this.startRate * this.elWidth
     },
     endX () : number {
-      return this.end / this.length * this.elWidth
+      return this.endRate * this.elWidth
     },
     length () : number {
       return this.max - this.min
@@ -118,6 +126,17 @@ const Slider = defineComponent({
     // observe 销毁
   },
   methods: {
+    updateFocus () {
+      if (this.isFocus.start || this.isFocus.end) {
+        if (this.active === 'start') {
+          this.isFocus.start = true
+          this.isFocus.end = false
+        } else if (this.active === 'end') {
+          this.isFocus.start = false
+          this.isFocus.end = true
+        }
+      }
+    },
     onThumbMouseDown (e: MouseEvent) {
       this.mouse = {
         pageX: e.pageX,
@@ -167,6 +186,8 @@ const Slider = defineComponent({
               // this.value = [this.mousedownVal.start, val]
             }
           }
+
+          this.updateFocus()
         } else {
           const val = Math.min(this.max, Math.max(this.min, offsetVal + this.mousedownVal.end))
           this.$emit('update:value', Math.round(val))
@@ -178,7 +199,6 @@ const Slider = defineComponent({
       this.mousedown = ''
       this.active = ''
 
-      console.log('removeEventListener')
       window.removeEventListener('mousemove', this.onThumbMouseMove)
       window.removeEventListener('mouseup', this.onThumbMouseUp)
     },
@@ -188,8 +208,8 @@ const Slider = defineComponent({
         h('div', {
           class: "x-slider--track-active",
           style: {
-            "left": (this.start / this.length * 100) + '%',
-            "right": (1 - (this.end / this.length)) * 100 + '%',
+            "left": (this.startRate * 100) + '%',
+            "right": (1 - this.endRate) * 100 + '%',
           }
         }),
       ]
@@ -216,9 +236,20 @@ const Slider = defineComponent({
       })
 
       const thumb = h('div', {
-        class: 'x-slider--thumb',
+        class: [
+          'x-slider--thumb',
+          { 'x-slider--thumb-focus': this.isFocus[type] }
+        ],
         style: {
           "transform": `translateX(${offset}px)`
+        },
+        tabindex: this.disabled ? -1 : 0,
+        onFocus: () => {
+          this.isFocus[type] = true
+        },
+        onBlur: () => {
+          this.isFocus.start = false
+          this.isFocus.end = false
         },
         // TIP: onMouseDown 受Vue版本影响
         onMousedownPassive: (e: MouseEvent) => {
@@ -238,7 +269,7 @@ const Slider = defineComponent({
     }
 
     return h('div', {
-      class: 'x-slider'
+      class: ['x-slider', { 'x-slider--disabled': this.disabled }]
     }, [
       this._renderTrack(),
       ...thumbs

@@ -8,6 +8,15 @@ $slider-prefix-cls: v.$prefix + '-slider';
   margin-left: 24px;
   margin-right: 24px;
 
+  &--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+
+    .x-slider--thumb-knob {
+      box-shadow: none;
+    }
+  }
+
   &--track {
     position: absolute;
     width: 100%;
@@ -60,7 +69,7 @@ $slider-prefix-cls: v.$prefix + '-slider';
       transition: opacity 0.15s linear, background-color 0.15s linear;
     }
 
-    &:hover::before {
+    &-focus::before, &:hover::before {
       opacity: 0.08;
     }
 
