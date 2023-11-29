@@ -49,7 +49,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yangxinp' }
+      { icon: 'github', link: 'https://github.com/yangxinp/xivui' }
     ]
   },
   markdown: {

@@ -12,7 +12,7 @@ actions:
     link: /zh/components/button
     icon: view-grid
   - text: Github
-    link: /
+    link: https://github.com/yangxinp/xivui
     icon: github
 features:
   - title: Material Design
