@@ -14,6 +14,8 @@ actions:
   - text: Github
     link: https://github.com/yangxinp/xivui
     icon: github
+  - text: Gitee
+    link: https://gitee.com/nayxp/xivui
 features:
   - title: Material Design
     details: Material is a design system created by Google to help teams build high-quality digital experiences for Android, iOS, Flutter, and the web.
