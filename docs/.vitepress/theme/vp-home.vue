@@ -38,6 +38,7 @@ function isExternal (url: string) {
 .actions .x-button {
   background-color: var(--vp-home-hero-name-color);
   color: white;
+  margin: 6px;
 }
 
 .VPHero {
@@ -157,11 +158,18 @@ function isExternal (url: string) {
   flex-wrap: wrap;
   margin: -6px;
   padding-top: 24px;
+  justify-content: center;
 }
 
 @media (min-width: 640px) {
   .actions {
     padding-top: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  .actions {
+    justify-content: flex-start;
   }
 }
 
