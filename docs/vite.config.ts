@@ -8,9 +8,20 @@ export default defineConfig(({ command }) => {
   const alias: Alias[] = []
 
   if (command === 'serve') {
+    // xivui -> ./src
     alias.push({
-      find: /^xivui(\/(es|lib))?$/,
-      replacement: path.resolve(__dirname, '../src/index.ts')
+      find: /^xivui(\/(?!(?:es)|(?:lib))(?:.+))?$/,
+      replacement: path.resolve(__dirname, '../src$1')
+    })
+    // xivui/es -> ./es
+    alias.push({
+      find: /^xivui\/es(.*)$/,
+      replacement: path.resolve(__dirname, '../es$1')
+    })
+    // xivui/lib -> ./lib
+    alias.push({
+      find: /^xivui\/lib(.*)$/,
+      replacement: path.resolve(__dirname, '../lib$1')
     })
   }
 
@@ -37,7 +48,7 @@ export default defineConfig(({ command }) => {
       exclude: [
         '../es',
         '../lib',
-        '../src/components'
+        '../src'
       ]
     }
   }

@@ -1,4 +1,5 @@
 import xivui from 'xivui'
+// import xivui from 'xivui/es'
 import { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 
@@ -8,7 +9,8 @@ import ExhibitColor from '../components/exhibit-color.vue'
 import ExhibitElevation from '../components/exhibit-elevation.vue'
 
 import '@mdi/font/css/materialdesignicons.min.css'
-import '../styles/index.scss'
+import 'xivui/components/styles'
+// import 'xivui/es/components/styles'
 
 const theme: Theme = {
   ...DefaultTheme,
