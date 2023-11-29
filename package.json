@@ -24,6 +24,25 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./es": "./es/index.js",
+    "./lib": "./lib/index.js",
+    "./es/*": "./es/*/index.js",
+    "./lib/*": "./lib/*/index.js",
+    "./components": {
+      "import": "./es/components/index.js",
+      "require": "./lib/components/index.js"
+    },
+    "./components/*": {
+      "import": "./es/components/*/index.js",
+      "require": "./lib/components/*/index.js"
+    },
+    "./*": "./*"
+  },
   "jsdelivr": "dist/index.js",
   "unpkg": "dist/index.js",
   "files": [
