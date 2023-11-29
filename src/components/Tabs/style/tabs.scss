@@ -6,7 +6,7 @@ $tabs-prefix-cls: v.$prefix + "-tabs";
   position: relative; // &-prev, &-next
   height: 48px; // var
   line-height: 48px; // var
-  background-color: #fff; // var
+  // background-color: #fff; // var
   overflow: hidden; // &-prev, &-next
 
   // TIP: 已使用 js 实现

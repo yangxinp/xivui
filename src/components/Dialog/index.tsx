@@ -195,7 +195,7 @@ const Dialog = defineComponent({
     return h(Overlay, {
       active: this.value,
       scrim: this.modal,
-      class: ["x-dialog", { "x-dialog--animated": this.animate }],
+      class: ["x-dialog", "white", "text-black", { "x-dialog--animated": this.animate }],
       style: this.styles,
       clickOutside: this.clickOutside,
       ref: 'overlay'

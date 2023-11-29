@@ -48,7 +48,7 @@ const Menu = defineComponent({
 
     function clickOutsideHandler() {
       menu.value = false
-
+      
       emit('input', [...iValue.value])
     } 
 
@@ -85,7 +85,7 @@ const Menu = defineComponent({
 
     const _renderMenu = () => {
       return h(Overlay, {
-        class: 'x-menu',
+        class: ['x-menu', 'text-black', 'white'],
         active: menu.value,
         style: contentStyle.value,
         absolute: true,

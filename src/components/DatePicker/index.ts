@@ -237,7 +237,7 @@ const DatePicker = defineComponent({
 
       // children.push(this._renderFooter())
 
-      return h('div', { class: 'x-date-picker-body' }, children)
+      return h('div', { class: 'x-date-picker-body text-black white' }, children)
     },
   },
   render () {

@@ -7,12 +7,13 @@ $input-prefix-cls: v.$prefix + '-input';
   position: absolute;
   top: 0;
   // left: 0;
-  color: rgba(0, 0, 0, 0.6);
   transform-origin: top left;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  color: currentColor;
+  opacity: 0.6;
 
-  &._active { color: currentColor; }
-  &._disabled { color: rgba(0, 0, 0, 0.38); }
+  &._active { opacity: 1; }
+  &._disabled { opacity: 0.38; }
 }
 
 .#{$input-prefix-cls} {

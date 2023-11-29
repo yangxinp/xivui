@@ -9,7 +9,7 @@ $table-prefix-cls: v.$prefix + '-table';
 
 .x-menu {
   border-radius: 4px;
-  background-color: #fff;
+  // background-color: #fff;
   z-index: 99;
   position: absolute;
   overflow-y: auto;
@@ -63,7 +63,7 @@ $table-prefix-cls: v.$prefix + '-table';
   tr>th, tr>td {
     height: 56px; // min-height
     padding: 6px 16px;
-    background-color: #fff;
+    // background-color: #fff;
     box-sizing: border-box;
 
     &.is-left {
@@ -107,7 +107,7 @@ $table-prefix-cls: v.$prefix + '-table';
     text-align: left;
     font-size: 14px;
     border-radius: 5px;
-    background-color: #fff;
+    // background-color: #fff;
     overflow: hidden;
     box-sizing: border-box;
 

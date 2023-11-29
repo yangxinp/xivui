@@ -79,6 +79,7 @@ const colorGroups = ref(getColorGroups())
   height: 48px;
   padding: 16px 12px;
   box-sizing: border-box;
+  color: black;
 }
 
 .color-item.light {
