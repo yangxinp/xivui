@@ -12,6 +12,8 @@ import '@mdi/font/css/materialdesignicons.min.css'
 import 'xivui/components/styles'
 // import 'xivui/es/components/styles'
 
+import '../styles/index.scss'
+
 const theme: Theme = {
   ...DefaultTheme,
   Layout: VPLayout,
