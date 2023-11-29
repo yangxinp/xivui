@@ -9,10 +9,12 @@ import { createApp } from 'vue';
 import XiVui from 'xivui'
 import App from './App.vue';
 import 'xivui/dist/index.css';
+// or
+// import 'xivui/components/styles';
 
 const app = createApp(App);
 
-app.use(XiVui.install).mount('#app')
+app.use(XiVui).mount('#app')
 ```
 
 :::warning
@@ -31,8 +33,8 @@ app.use(XiVui.install).mount('#app')
 </template>
 
 <script setup lang="ts">
-  import { Button } from 'Xivui'
-  import 'xivui/lib/components/button/style'
+  import { Button } from 'xivui'
+  import 'xivui/components/button/style'
 </script>
 ```
 

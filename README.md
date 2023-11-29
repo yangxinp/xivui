@@ -55,7 +55,7 @@ $ pnpm install xivui --save
   <!-- Import Vue 3 -->
   <script src="https://unpkg.com/vue@3"></script>
   <!-- Import component library -->
-  <script src="https://unpkg.com/xivui/index.js"></script>
+  <script src="https://unpkg.com/xivui/dist/index.js"></script>
 </head>
 ```
 
@@ -68,6 +68,6 @@ $ pnpm install xivui --save
   <!-- Import Vue 3 -->
   <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
   <!-- Import component library -->
-  <script src="https://cdn.jsdelivr.net/npm/xivui/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xivui/dist/index.js"></script>
 </head>
 ```
