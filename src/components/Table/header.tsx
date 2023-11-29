@@ -47,9 +47,10 @@ const Menu = defineComponent({
     }
 
     function clickOutsideHandler() {
-      menu.value = false
-      
-      emit('input', [...iValue.value])
+      if (menu.value) {
+        menu.value = false
+        emit('input', [...iValue.value])
+      }
     } 
 
     function isActive(item: FilterOption) {
