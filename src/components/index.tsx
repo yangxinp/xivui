@@ -17,3 +17,5 @@ export { default as Dialog } from "./Dialog"
 export { default as Chip } from "./Chip"
 export { Table, TableColumn } from './Table'
 export { default as Card } from './Card'
+export { default as Snackbar } from './Snackbar'
+export { Api as SnackbarApi } from './Snackbar/use'

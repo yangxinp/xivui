@@ -14,6 +14,8 @@ const install: Plugin = function (app: App) {
     }
   })
 
+  app.config.globalProperties.$snackbar = components.SnackbarApi
+
   console.log(`${pkg.name}@${pkg.version} installed`)
 }
 
