@@ -418,12 +418,40 @@
       </template>
     </x-card>
   </example-row>
+  <example-row title="Snackbar">
+    <div>
+      <x-snackbar :variant="snackbar.variant" :rounded="snackbar.rounded" :vertical="snackbar.vertical">
+        {{ snackbar.longText ? "content ".repeat(20) : "content" }}
+        <template #action>
+          <x-button text>Button</x-button>
+        </template>
+      </x-snackbar>
+    </div>
+    <x-radio-group v-model:value="snackbar.variant" inline>
+      <x-radio value="elevation">Elevation</x-radio>
+      <x-radio value="tonal">Tonal</x-radio>
+      <x-radio value="outlined">Outlined</x-radio>
+    </x-radio-group>
+    <x-checkbox v-model:checked="snackbar.rounded">Rounded</x-checkbox>
+    <x-checkbox v-model:checked="snackbar.vertical">Vertical</x-checkbox>
+    <x-checkbox v-model:checked="snackbar.longText">_LongText</x-checkbox>
+
+    <br />
+    <x-button @click="snackbar.openTop">OPEN TOP API</x-button>
+    <x-button @click="snackbar.openBottom">OPEN BOTTOM API</x-button>
+    <x-button @click="snackbar.openLeftTop">OPEN LEFT-TOP API</x-button>
+    <x-button @click="snackbar.openLeftBottom">OPEN LEFT-BOTTOM API</x-button>
+    <x-button @click="snackbar.openRightTop">OPEN RIGHT-TOP API</x-button>
+    <x-button @click="snackbar.openRightBottom">OPEN RIGHT-BOTTOM API</x-button>
+  </example-row>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive, version } from 'vue'
 import ExampleRow from './ExampleRow.vue'
-import { reactive } from 'vue'
+import { getCurrentInstance } from 'vue'
+
+console.log('Vue version:', version)
 
 function useIcon() {
   return {}
@@ -574,6 +602,41 @@ function useCard() {
   return { type, expand, loading }
 }
 
+function useSnackbar() {
+  const variant = ref('elevation')
+  const rounded = ref(false)
+  const vertical = ref(false)
+  const longText = ref(false)
+
+  const vm = getCurrentInstance()
+  const $snackbar = vm.appContext.config.globalProperties.$snackbar
+
+  function randomText() {
+    return 'nt con te'.repeat(Math.floor(Math.random() * 30))
+  }
+
+  function openTop() {
+    $snackbar.open({ placement: 'top', content: randomText() })
+  }
+  function openBottom() {
+    $snackbar.open({ placement: 'bottom', content: randomText() })
+  }
+  function openLeftTop() {
+    $snackbar.open({ placement: 'left-top', content: randomText() })
+  }
+  function openLeftBottom() {
+    $snackbar.open({ placement: 'left-bottom', content: randomText() })
+  }
+  function openRightTop() {
+    $snackbar.open({ placement: 'right-top', content: randomText() })
+  }
+  function openRightBottom() {
+    $snackbar.open({ placement: 'right-bottom', content: randomText() })
+  }
+
+  return { variant, rounded, vertical, longText, openTop, openBottom, openLeftTop, openLeftBottom, openRightTop, openRightBottom }
+}
+
 export default {
   // https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#caveat-when-unwrapping-in-templates
 
@@ -599,6 +662,7 @@ export default {
       chip: reactive(useChip()),
       table: reactive(useTable()),
       card: reactive(useCard()),
+      snackbar: reactive(useSnackbar()),
     }
   }
 }
