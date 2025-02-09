@@ -99,11 +99,15 @@ export const Snackbars = defineComponent({
     const bars = ref<SnackbarConfig[]>([])
 
     const add = (options: Partial<SnackbarConfig>) => {
-      bars.value.push({
+      const current = {
         ...options,
         key: options.key ?? Symbol(),
         content: options.content ?? '',
-      })
+      }
+
+      bars.value.push(current)
+
+      return { key: current.key, close: () => remove(current.key) }
     }
 
     const remove = (key: string) => {

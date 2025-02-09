@@ -66,15 +66,22 @@ function getSnackbarsInstance(props: SnackbarWrapperPropsType, callback: (p: Sna
   }
 }
 
-export function open(option: Partial<SnackbarOption> = {}) {
+export function open(
+  option: Partial<SnackbarOption> = {},
+  callback?: (p: ReturnType<SnackbarsInstance['add']>) => void
+) {
   getSnackbarsInstance({
     placement: 'bottom',
     ...option,
   }, (e) => {
-    e.ref.value?.add({
+    if (!e.ref.value) return
+
+    const result = e.ref.value.add({
       duration: 4500,
       ...option,
     })
+
+    if (callback) callback(result)
   })
 }
 
