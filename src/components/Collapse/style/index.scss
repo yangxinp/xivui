@@ -1,0 +1,149 @@
+@use "../../../styles/tools/variables" as v;
+@use "../../../styles/tools/elevation" as e;
+@use "../../../styles/tools/color" as c;
+
+$collapse-prefix-cls: v.$prefix + '-collapse';
+$collapse-panel-prefix-cls: v.$prefix + '-collapse-panel';
+
+.#{$collapse-prefix-cls} {
+  &:not(&-accordion) {
+    .#{$collapse-panel-prefix-cls} {
+      &-active,
+      &-active + .#{$collapse-panel-prefix-cls} {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    
+        .#{$collapse-panel-prefix-cls}-shadow,
+        .#{$collapse-panel-prefix-cls}-header {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+      }
+
+      &-active,
+      &:has(+ .#{$collapse-panel-prefix-cls}-active) {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    
+        .#{$collapse-panel-prefix-cls}-shadow,
+        .#{$collapse-panel-prefix-cls}-header {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+      &-active {
+        &:not(:first-child),
+        + .#{$collapse-panel-prefix-cls} {
+          margin-top: 16px;
+    
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.#{$collapse-panel-prefix-cls} {
+  position: relative;
+  background-color: #FFF;
+  transition: all 0.3s ease;
+
+  // &-active,
+  // &-active + .#{$collapse-panel-prefix-cls},
+  &:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    .#{$collapse-panel-prefix-cls}-shadow,
+    .#{$collapse-panel-prefix-cls}-header {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+  }
+
+  // &-active,
+  // &:has(+ &-active),
+  &:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    
+    .#{$collapse-panel-prefix-cls}-shadow,
+    .#{$collapse-panel-prefix-cls}-header {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+
+  &:not(:first-child)::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    border-top-width: thin;
+    border-top-style: solid;
+    border-color: rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+  }
+
+  &-active {
+    .x-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-disabled {
+    .#{$collapse-panel-prefix-cls}-header {
+      pointer-events: none;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: currentColor;
+        opacity: 0.1;
+      }
+    }
+  }
+
+  &-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: e.$umbra-2, e.$penumbra-2, e.$ambient-2;
+    z-index: -1;
+    border-radius: inherit; // 用继承过渡效果会慢一拍，需要显性声明
+    transition: all 0.3s ease;
+  }
+
+  &-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 16px 24px;
+    cursor: pointer;
+    &:hover {
+      background-color: c.$gray-1;
+    }
+
+    .x-icon {
+      align-self: center;
+    }
+  }
+
+  &-content {
+    transition: all 0.3s ease;
+  }
+
+  &-content-box {
+    padding: 8px 24px 16px;
+  }
+}
