@@ -45,6 +45,7 @@ export default defineConfig({
           { text: 'Table 表格', link: '/zh/components/table' },
           { text: 'Card 卡片', link: '/zh/components/card' },
           { text: 'Snackbar 消息条', link: '/zh/components/snackbar' },
+          { text: 'Collspase 折叠面板', link: '/zh/components/collapse' },
         ]
       }
     ],

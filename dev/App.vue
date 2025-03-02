@@ -444,6 +444,57 @@
     <x-button @click="snackbar.openRightTop">OPEN RIGHT-TOP API</x-button>
     <x-button @click="snackbar.openRightBottom">OPEN RIGHT-BOTTOM API</x-button>
   </example-row>
+  <example-row title="Collapse">
+    <x-checkbox v-model:checked="collapse.accordion">Accordion</x-checkbox>
+    <x-checkbox v-model:checked="collapse.multiple">Multiple</x-checkbox>
+    <x-checkbox v-model:checked="collapse.ripple">Ripple</x-checkbox>
+    <x-checkbox v-model:checked="collapse.disabled">Disabled</x-checkbox>
+
+    <x-collapse
+      style="width: 300px;"
+      v-model:value="collapse.value"
+      :accordion="collapse.accordion"
+      :multiple="collapse.multiple"
+      :ripple="collapse.ripple"
+      :disabled="collapse.disabled"
+    >
+      <x-collapse-panel key="11" title="Title">
+        <div >
+          content content content
+          content content content
+          content content content
+          content content content
+        </div>
+      </x-collapse-panel>
+      <x-collapse-panel>
+        <template #header>
+          <div><x-icon type="account-circle-outline" />Title2</div>
+        </template>
+        <div >
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+        </div>
+      </x-collapse-panel>
+      <x-collapse-panel>
+        <div >
+          content content content
+          content content content
+          content content content
+          content content content
+        </div>
+      </x-collapse-panel>
+      <x-collapse-panel>
+        <div>
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+          xxxxxxx xxxxxxx xxxxxxx
+        </div>
+      </x-collapse-panel>
+    </x-collapse>
+  </example-row>
 </template>
 
 <script>
@@ -637,6 +688,16 @@ function useSnackbar() {
   return { variant, rounded, vertical, longText, openTop, openBottom, openLeftTop, openLeftBottom, openRightTop, openRightBottom }
 }
 
+function useCollapse() {
+  const value = ref()
+  const accordion = ref(false)
+  const multiple = ref(false)
+  const ripple = ref(false)
+  const disabled = ref(false)
+
+  return { value, accordion, multiple, ripple, disabled }
+}
+
 export default {
   // https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#caveat-when-unwrapping-in-templates
 
@@ -663,6 +724,7 @@ export default {
       table: reactive(useTable()),
       card: reactive(useCard()),
       snackbar: reactive(useSnackbar()),
+      collapse: reactive(useCollapse()),
     }
   }
 }
