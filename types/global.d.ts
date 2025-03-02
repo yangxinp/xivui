@@ -11,4 +11,5 @@ interface RippleOption {
   class?: string
   circle?: boolean
   center?: boolean
+  enable?: boolean
 }
