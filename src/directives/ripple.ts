@@ -33,7 +33,7 @@ function calculate (el: HTMLElement, e: MouseEvent, value: RippleOption) {
 
 // 水滴
 function drip (this: HTMLElement, e: MouseEvent) {
-  if (!this._ripple) return
+  if (!this._ripple?.enable) return
 
   const container = document.createElement('span')
   const water = document.createElement('span')
@@ -100,22 +100,31 @@ function evaporate (this: HTMLElement, e: MouseEvent) {
 
 // 更新属性
 function updateValue (el: HTMLElement, value?: RippleOption) {
+  if (el._ripple) {
+    Object.assign(el._ripple, value)
+    return
+  }
+
   const def: RippleOption = {
     class: '',
     center: false,
     circle: false,
+    enable: true,
   }
 
   el._ripple = Object.assign(def, value)
+
+  el.addEventListener('mousedown', drip, { passive: true })
+  el.addEventListener('mouseleave', evaporate)
+  el.addEventListener('mouseup', evaporate)
 }
 
 export const Ripple: ObjectDirective<HTMLElement, RippleOption> = {
   mounted (el, binding, vnode, prevNode) {
     updateValue(el, binding.value)
-
-    el.addEventListener('mousedown', drip, { passive: true })
-    el.addEventListener('mouseleave', evaporate)
-    el.addEventListener('mouseup', evaporate)
+  },
+  updated(el, binding, vnode, prevNode) {
+    updateValue(el, binding.value)
   },
   unmounted (el) {
     delete el._ripple
