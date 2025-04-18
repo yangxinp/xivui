@@ -62,12 +62,12 @@ function drip (this: HTMLElement, e: MouseEvent) {
 
   water.dataset.time = String(Date.now())
 
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     water.classList.remove('enter')
     water.classList.add('in')
     water.style.transform = `translate(${centerX}px, ${centerY}px) scale3d(1, 1, 1)`
     water.style.opacity = '0.25'
-  }, 0)
+  })
 }
 
 // 消除
@@ -78,7 +78,7 @@ function evaporate (this: HTMLElement, e: MouseEvent) {
 
   const water = ripples[ripples.length - 1] as HTMLElement
   const diff = Date.now() - Number(water.dataset.time)
-  // 剩余的扩散事件，等待执行完
+  // 剩余的扩散时间，等待执行完
   const delay = Math.max(DURATION - diff , 0)
 
   setTimeout(() => {
