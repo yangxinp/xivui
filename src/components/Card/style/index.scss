@@ -31,6 +31,7 @@ $divider-prefix-cls: v.$prefix + '-divider';
     left: 0;
     right: 0;
     transition: height 0.3s ease;
+    z-index: 9;
   }
 
   &#{&}--hover:hover {
