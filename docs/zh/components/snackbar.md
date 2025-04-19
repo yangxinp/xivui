@@ -107,12 +107,13 @@
 
 ### 参数
 
-| 属性名   | 说明                                   | 类型                                           | 默认值    | 是否必填 |
-| -------- | -------------------------------------- | ---------------------------------------------- | --------- | -------- |
-| content  | 显示持续时间（毫秒），时间结束自动关闭 | String/Number/ `() => VNode` Function          | -         | Yes      |
-| close    | 显示关闭按钮                           | Boolean/ `(close: Function) => VNode` Function | `false`   | No       |
-| variant  | 样式                                   | `elevation`/`tonal`/`outlined`                 | elevation | No       |
-| color    | 颜色                                   | String                                         | -         | No       |
-| rounded  | 圆角                                   | Boolean                                        | `false`   | No       |
-| vertical | 内容堆叠                               | Boolean                                        | `false`   | No       |
-| duration | 显示持续时间（毫秒），时间结束自动关闭 | Number                                         | 4500      | No       |
+| 属性名    | 说明                                   | 类型                                                                    | 默认值    | 是否必填 |
+| --------- | -------------------------------------- | ----------------------------------------------------------------------- | --------- | -------- |
+| content   | 内容                                   | String/Number/ `() => VNode` Function                                   | -         | Yes      |
+| close     | 显示关闭按钮                           | Boolean/ `(close: Function) => VNode` Function                          | `false`   | No       |
+| variant   | 样式                                   | `elevation`/`tonal`/`outlined`                                          | elevation | No       |
+| color     | 颜色                                   | String                                                                  | -         | No       |
+| rounded   | 圆角                                   | Boolean                                                                 | `false`   | No       |
+| vertical  | 内容堆叠                               | Boolean                                                                 | `false`   | No       |
+| duration  | 显示持续时间（毫秒），时间结束自动关闭 | Number                                                                  | 4500      | No       |
+| placement | 消息出现的方位                         | `top`、`bottom`、`left-top`、`right-top`、`left-bottom`、`right-bottom` | `top`     | No       |

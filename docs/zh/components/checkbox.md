@@ -61,6 +61,12 @@
 | options       | 复选框选项，也可用 template 替代 | Array   | -      | No       |
 | indeterminate | 设置不确定状态                   | Boolean | false  | No       |
 
+### 插槽
+
+| 插槽名    | 说明               | 作用域参数 |
+| --------- | ------------------ | ---------- |
+| `default` | 同级 Checkbox 组件 | -          |
+
 ## Checkbox API
 
 ### 属性

@@ -52,16 +52,22 @@
 | disabled | 是否禁用                         | Boolean | false  | No       |
 | options  | 单选框选项，也可用 template 替代 | Array   | -      | No       |
 
+### 插槽
+
+| 插槽名    | 说明              | 作用域参数 |
+| --------- | ----------------- | ---------- |
+| `default` | 互斥的 Radio 组件 | -          |
+
 ## Radio API
 
 ### 属性
 
-| 属性名   | 说明                                                                           | 类型    | 默认值      | 是否必填 |
-| -------- | ------------------------------------------------------------------------------ | ------- | ----------- | -------- |
+| 属性名   | 说明                                                                               | 类型    | 默认值 | 是否必填 |
+| -------- | ---------------------------------------------------------------------------------- | ------- | ------ | -------- |
 | color    | 单选框颜色，优先级高于[RadioGroup](./radio.md#radiogroup-api)                      | String  | `blue` | No       |
-| checked  | 指定当前是否选中，在组件独立情况下工作                                         | Boolean | false       | No       |
-| disabled | 是否禁用                                                                       | Boolean | false       | No       |
-| value    | 根据 value 进行比较，判断是否选中，在[RadioGroup](./radio.md#radiogroup-api)下工作 | any     | -           | No       |
+| checked  | 指定当前是否选中，在组件独立情况下工作                                             | Boolean | false  | No       |
+| disabled | 是否禁用                                                                           | Boolean | false  | No       |
+| value    | 根据 value 进行比较，判断是否选中，在[RadioGroup](./radio.md#radiogroup-api)下工作 | any     | -      | No       |
 
 ### 插槽
 

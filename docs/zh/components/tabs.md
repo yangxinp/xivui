@@ -64,7 +64,6 @@
 | ----------- | ---------------- | ------------- | ------- | -------- |
 | value       | 绑定值           | String/Number | -       | No       |
 | fixed       | 是否固定选项     | Boolean       | `false` | No       |
-| fixed       | 是否固定选项     | Boolean       | `false` | No       |
 | centered    | 激活项居中       | Boolean       | `false` | No       |
 | show-arrows | 显示方向前后按钮 | Boolean       | `false` | No       |
 
@@ -72,6 +71,7 @@
 
 ### 属性
 
-| 属性名 | 说明         | 类型          | 默认值 | 是否必填 |
-| ------ | ------------ | ------------- | ------ | -------- |
-| name   | 选项卡的标识 | String/Number | -      | No       |
+| 属性名   | 说明         | 类型          | 默认值  | 是否必填 |
+| -------- | ------------ | ------------- | ------- | -------- |
+| name     | 选项卡的标识 | String/Number | -       | No       |
+| disabled | 是否禁用     | Boolean       | `false` | No       |

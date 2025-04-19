@@ -81,6 +81,7 @@
 | loading           | 是否加载中              | Boolean                          | false        | No       |
 | clearable         | 是否可以清空内容        | Boolean                          | false        | No       |
 | disabled          | 是否禁用                | Boolean                          | false        | No       |
+| maxlength         | 文字数量限制            | number                           | -            | no       |
 | prefix-icon       | 前缀图标                | String                           | -            | No       |
 | prefix-outer-icon | 外部前缀图标            | String                           | -            | No       |
 | suffix-icon       | 后缀图标                | String                           | -            | No       |
