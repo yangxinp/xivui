@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 .env
+bill.md
+deploy.sh
 
 # lock
 package-lock.json
