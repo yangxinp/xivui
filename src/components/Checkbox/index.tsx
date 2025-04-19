@@ -1,7 +1,7 @@
 import { InjectionKey, ExtractPublicPropTypes, PropType, defineComponent, h, withDirectives, inject, computed, provide, reactive, toRefs } from 'vue'
 import { Ripple } from "../../directives/ripple"
 
-interface CheckboxOption { label: string; value: any, disabled?: boolean}
+interface CheckboxOption { label: string; value: any, disabled?: boolean; color?: string}
 
 type CheckboxGroupPropsType = ExtractPublicPropTypes<typeof CheckboxGroupProps>
 
@@ -39,7 +39,7 @@ export const CheckboxGroup = defineComponent({
 
     const _renderRadio = () => {
       return (props.options ?? []).map(opt => {
-        return h(Checkbox, { value: opt.value, disabled: opt.disabled }, () => opt.label)
+        return h(Checkbox, { value: opt.value, disabled: opt.disabled, color: opt.color }, () => opt.label)
       })
     }
 
