@@ -24,6 +24,14 @@
 
 :::
 
+## 加载状态
+
+设置 `loading` 属性为 `true`，卡片上方会出现进度条。
+
+:::demo card/loading
+
+:::
+
 ## 卡片大小
 
 提供三个快速调整宽度的属性 `width`、`minWidth`、`maxWidth`。
@@ -63,6 +71,7 @@
 | content  | 内容。可使用[插槽](./card#插槽)自定义   | String                               | -          | No       |
 | media    | 媒体内容。[插槽](./card#插槽)自定义     | String                               | -          | No       |
 | hover    | 鼠标移过时可浮起                        | Boolean                              | -          | No       |
+| loading  | 加载中状态                              | Boolean                              | false      | No       |
 | expand   | 内容是否展开                            | Boolean                              | true       | No       |
 
 ### 插槽
